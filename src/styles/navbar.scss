@@ -1,0 +1,103 @@
+$background-color: #131921;
+$white-color: white;
+
+//variables and mixins
+@mixin flexDisplay($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: center;
+}
+
+
+//navbar
+.main-navbar {
+    display: fixed;
+    top:0;
+    left: 0;
+    background-color: $background-color;
+    width: 100%;
+
+    .main-header {
+        @include flexDisplay(row, space-between);
+        max-width: 1440px;
+        margin: auto;
+
+        img {
+            width: 80px;
+            object-fit: contain;
+            margin: 5px 10px;
+        }
+        @media screen and (min-width: 796px) {
+            img {
+                margin-left: -60px;
+            }
+        }
+        .toggle-btn {
+            font-size: 30px;
+            background-color: transparent;
+            border-style: none;
+            color: $white-color;
+            cursor: pointer;
+            display: block;
+            margin-right: 10px;
+        }
+        @media screen and (min-width: 796px) {
+                .toggle-btn {
+                    display: none;
+                }
+        }
+        
+        .nav-links-container {
+            display: none; /*toggles */
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    display: inline-block;
+                    cursor: pointer;
+                    padding: 5px 10px;
+
+                    a, a:visited {
+                        text-decoration: none;
+                        color: $white-color;
+                        font-weight: 500;
+                    }
+                }  
+            }
+        }
+        @media screen and (min-width: 796px) {
+            .nav-links-container {
+                display: inline-block; /*toggles */
+            }
+        }
+
+        .social-links-container {
+            display: none; /*toggles */
+
+            ul {
+                li {
+                    display: inline-block;
+                    list-style: none;
+                    color: $white-color;
+                    font-size: 24px;
+                    padding: 2px 5px;
+                }
+            }
+        }
+        @media screen and (min-width: 796px) {
+            .social-links-container {
+                display: block;
+                margin-right: -60px;
+            }
+        }
+        
+    }
+
+    @media screen and (min-width: 786px) {
+        .main-header {
+            justify-content: space-around;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+.main-navbar {
+  display: fixed;
+  top: 0;
+  left: 0;
+  background-color: #131921;
+  width: 100%;
+}
+
+.main-navbar .main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.main-navbar .main-header img {
+  width: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 5px 10px;
+}
+
+@media screen and (min-width: 796px) {
+  .main-navbar .main-header img {
+    margin-left: -60px;
+  }
+}
+
+.main-navbar .main-header .toggle-btn {
+  font-size: 30px;
+  background-color: transparent;
+  border-style: none;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 796px) {
+  .main-navbar .main-header .toggle-btn {
+    display: none;
+  }
+}
+
+.main-navbar .main-header .nav-links-container {
+  display: none;
+  /*toggles */
+}
+
+.main-navbar .main-header .nav-links-container ul {
+  list-style-type: none;
+}
+
+.main-navbar .main-header .nav-links-container ul li {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.main-navbar .main-header .nav-links-container ul li a, .main-navbar .main-header .nav-links-container ul li a:visited {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 796px) {
+  .main-navbar .main-header .nav-links-container {
+    display: inline-block;
+    /*toggles */
+  }
+}
+
+.main-navbar .main-header .social-links-container {
+  display: none;
+  /*toggles */
+}
+
+.main-navbar .main-header .social-links-container ul li {
+  display: inline-block;
+  list-style: none;
+  color: white;
+  font-size: 24px;
+  padding: 2px 5px;
+}
+
+@media screen and (min-width: 796px) {
+  .main-navbar .main-header .social-links-container {
+    display: block;
+    margin-right: -60px;
+  }
+}
+
+@media screen and (min-width: 786px) {
+  .main-navbar .main-header {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+/*# sourceMappingURL=navbar.css.map */

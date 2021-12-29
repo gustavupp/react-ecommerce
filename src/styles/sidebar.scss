@@ -1,0 +1,62 @@
+$background-color: #232F3E;
+$font-color: white;
+$hover-color: grey;
+
+.sidebar-main {
+    transform: translate(-100%); /*toggles*/
+    transition: 0.5s;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $background-color;
+    
+    .logo {
+        width: 80px;
+        margin: 10px;
+    }
+    .links-div {
+        .links-ul {
+            li {
+                padding: 10px 10px;
+                cursor: pointer;
+
+                a, a:visited {
+                text-decoration: none;
+                color: $font-color;
+                font-weight: 500;
+                }
+                &:hover {
+                    background-color: $hover-color;
+                }
+            }  
+        }
+    }
+
+    .sidebar-social {
+        ul {
+            li {
+                display: inline-block;
+                color: $font-color;
+                margin: 10px 5px;
+                font-size: 24px;
+
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+        }
+    }
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px; 
+        cursor: pointer;
+        font-size: 26px;
+        color: white;
+        background-color: transparent;
+        border-style: none;
+        margin: 5px;
+    }
+}
