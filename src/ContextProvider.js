@@ -1,4 +1,4 @@
-Import React from 'react';
+Import { React, useContext, useState, useReduce } from 'react';
 
 const appProvider = react.createContext();
 
@@ -6,10 +6,6 @@ const initialState = {
 cart: [],
 itemTotal: '',
 valueTotal: ''
-}
-
-const reducer = (state, action) => {
-     return state;
 }
 
 const useProvider = ({children}) => {
@@ -21,4 +17,4 @@ const useProvider = ({children}) => {
  )
 }
 
-export default useProvider;
+export {useProvider};
