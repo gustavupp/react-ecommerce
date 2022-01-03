@@ -1,7 +1,12 @@
 import React from 'react'
+import '../styles/footer.css'
 
 const Footer = () => {
-    return <h1>Footer</h1>
+    return (
+        <main className='footer-main'>
+            <p>© {new Date().getFullYear()} <span>ASIL Online Store</span>. All Rights Reserved</p>
+        </main>
+        )
 }
 
 export default Footer;

@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAGA,AAAA,UAAU,CAAC;EACP,gBAAgB,EAAE,4CAAiE;CACtF",
     "sources": [
-        "home.scss"
+        "homepage.scss"
     ],
     "names": [],
-    "file": "home.css"
+    "file": "homepage.css"
 }

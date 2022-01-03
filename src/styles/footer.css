@@ -1,0 +1,23 @@
+.footer-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 80px;
+  background-color: #131921;
+  color: white;
+}
+
+.footer-main p {
+  font-weight: 500;
+}
+
+.footer-main p span {
+  color: #9899ff;
+}
+/*# sourceMappingURL=footer.css.map */

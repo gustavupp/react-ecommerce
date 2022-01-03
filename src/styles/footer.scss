@@ -1,0 +1,19 @@
+$font-color: white;
+$background-color: #131921;
+
+.footer-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    background-color: $background-color;
+    color: $font-color;
+
+    p {
+        font-weight: 500;
+
+        span {
+            color:rgb(152, 153, 255);
+        }
+    }
+}
