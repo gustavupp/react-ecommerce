@@ -23,10 +23,10 @@
 }
 
 .main-navbar .main-header img {
-  width: 80px;
+  width: 100px;
   -o-object-fit: contain;
      object-fit: contain;
-  margin: 5px 10px;
+  margin: 15px 10px;
 }
 
 @media screen and (min-width: 796px) {
