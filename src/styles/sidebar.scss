@@ -2,7 +2,18 @@ $background-color: #232F3E;
 $font-color: white;
 $hover-color: grey;
 
+//mixins
+@mixin btn {
+    cursor: pointer;
+    font-size: 20px;
+    color: $font-color;
+    background-color: transparent;
+    border-style: none;
+    margin: 5px;
+}
+
 .sidebar-main {
+    transform: translate(-100%);
     transition: 0.5s;
     position: fixed;
     top:0;
@@ -10,7 +21,8 @@ $hover-color: grey;
     width: 100%;
     height: 100%;
     background-color: $background-color;
-    
+    z-index: -1;
+
     .logo {
         width: 80px;
         margin: 10px;
@@ -33,6 +45,23 @@ $hover-color: grey;
         }
     }
 
+    .cart-login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .cart-btn {
+            @include btn();
+            margin-right: 25px;
+            a {
+                text-decoration: none;
+                color: $font-color;
+            }
+        }
+        .user-btn {
+            @include btn();
+        }
+    }
+
     .sidebar-social {
         ul {
             li {
@@ -48,14 +77,20 @@ $hover-color: grey;
         }
     }
     .close-btn {
+        @include btn();
         position: absolute;
         top: 10px;
         right: 10px; 
-        cursor: pointer;
-        font-size: 26px;
-        color: white;
-        background-color: transparent;
-        border-style: none;
-        margin: 5px;
+    }
+}
+
+.show-sidebar {
+        z-index: 999;
+        transform: translate(0);
+    }
+
+@media screen and (min-width: 796px) {
+    .sidebar-main {
+        display: none;
     }
 }

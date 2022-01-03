@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaBars } from "react-icons/fa";
-import logo from './assets/logo.png';
-import { menuLinks } from './constants/constants'
-import { socialIcons } from './constants/constants';
-import { AppContext } from './context'
-import './styles/navbar.css';
+import { FaShoppingCart, FaBars, FaUserPlus } from "react-icons/fa";
+import logo from '../assets/logo.png';
+import { menuLinks } from '../constants/constants'
+import { socialIcons } from '../constants/constants';
+import { ProductsContext } from '../context/products_context'
+import '../styles/navbar.css';
 
 const Navbar = () => {
-    const { isSidebarOpen, openSidebar } = useContext(AppContext);
-    //console.log(isSidebarOpen)
+    const { isSidebarOpen, openSidebar } = useContext(ProductsContext);
 
     return (
         <main className='main-navbar'>
@@ -32,10 +31,22 @@ const Navbar = () => {
                             )
                         })
                     }
+                    {/* will be active when user is signed in */}
+                    {/* <li>
+                        <Link to='/checkout'>CHECKOUT</Link>
+                    </li> */}
                     </ul>
                 </div>
+                <div className='cart-login-container'>
+                    <button className='cart-btn' >
+                    <Link to='/checkout' >Cart <FaShoppingCart /></Link>
+                    </button>
+                    <button className='user-btn'>
+                        Login <FaUserPlus />{/* set up redirect to login page auth0 */}
+                    </button>
+                </div>
                 {/* social icons container */}
-                <div className='social-links-container'>
+                {/* <div className='social-links-container'>
                     <ul className='social-links'>
                         {
                             socialIcons.map((icon) => {
@@ -45,7 +56,7 @@ const Navbar = () => {
                             })
                         }
                     </ul>
-                </div>
+                </div> */}
             </div>
         </main>
         )

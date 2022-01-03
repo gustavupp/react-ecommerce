@@ -1,0 +1,33 @@
+.home-main {
+  width: 100%;
+  height: 100vh;
+  background-color: #EAEDED;
+}
+
+.home-main .article-container {
+  padding: 20px 20px;
+  max-width: 700px;
+}
+
+.home-main .article-container .title {
+  font-size: 36px;
+}
+
+.home-main .article-container .main-text {
+  margin: 20px 0;
+}
+
+.home-main .article-container .products-btn {
+  padding: 5px 10px;
+  margin: 10px 0;
+  background-color: #ebeb26;
+  border-style: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 5px grey;
+          box-shadow: 1px 1px 5px grey;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+}
+/*# sourceMappingURL=home.css.map */

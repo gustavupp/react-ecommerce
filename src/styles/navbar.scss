@@ -9,6 +9,15 @@ $white-color: white;
     align-items: center;
 }
 
+@mixin btn {
+    cursor: pointer;
+    font-size: 20px;
+    color: $white-color;
+    background-color: transparent;
+    border-style: none;
+    margin: 5px;
+}
+
 
 //navbar
 .main-navbar {
@@ -67,6 +76,31 @@ $white-color: white;
         }
         @media screen and (min-width: 796px) {
             .nav-links-container {
+                display: inline-block; /*toggles */
+            }
+        }
+
+        .cart-login-container {
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            .cart-btn {
+                @include btn();
+                margin-right: 25px;
+
+                a {
+                    text-decoration: none;
+                    color: $white-color;
+                }
+            }
+            
+            .user-btn {
+                @include btn();
+            }
+        }
+        @media screen and (min-width: 796px) {
+            .cart-login-container {
                 display: inline-block; /*toggles */
             }
         }

@@ -1,13 +1,14 @@
 //import  {commerce}  from './lib/commerce'
 import React from 'react';
-import Home from './Home';
-import Navbar from './Navbar';
-import Error from './Error'
-import Products from './Products';
-import SingleProduct from './SingleProduct'
-import Sidebar from './SideBar';
-import Footer from './Footer';
-import About from './About'
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import Error from './components/Error'
+import Products from './components/Products';
+import SingleProduct from './components/SingleProduct'
+import Sidebar from './components/SideBar';
+import Footer from './components/Footer';
+import About from './components/About'
+import Checkout from './components/Checkout';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -22,9 +23,12 @@ function App() {
         <Route exact path='/products'>
           <Products />
         </Route>
-        <Route exact path='products/:id' children={<SingleProduct />}></Route>
+        <Route exact path='/products/:id' children={<SingleProduct />}></Route>
         <Route exact path='/about'>
           <About />
+        </Route>
+        <Route exact path='/checkout'>
+          <Checkout />
         </Route>
         <Route exact path='*'>
           <Error /> 
