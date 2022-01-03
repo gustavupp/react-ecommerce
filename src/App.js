@@ -1,4 +1,5 @@
 //import  {commerce}  from './lib/commerce'
+import React from 'react';
 import Home from './Home';
 import Navbar from './Navbar';
 import Error from './Error'
@@ -6,6 +7,7 @@ import Products from './Products';
 import SingleProduct from './SingleProduct'
 import Sidebar from './SideBar';
 import Footer from './Footer';
+import About from './About'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
           <Products />
         </Route>
         <Route exact path='products/:id' children={<SingleProduct />}></Route>
+        <Route exact path='/about'>
+          <About />
+        </Route>
         <Route exact path='*'>
           <Error /> 
         </Route>

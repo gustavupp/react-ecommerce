@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBars } from "react-icons/fa";
 import logo from './assets/logo.png';
 import { menuLinks } from './constants/constants'
 import { socialIcons } from './constants/constants';
+import { AppContext } from './context'
 import './styles/navbar.css';
 
 const Navbar = () => {
+    const { isSidebarOpen, openSidebar } = useContext(AppContext);
+    //console.log(isSidebarOpen)
+
     return (
         <main className='main-navbar'>
             <div className='main-header'>
                 <Link to='/'>
                     <img src={logo} alt='logo' />
                 </Link>
-                <button className='toggle-btn'>
+                <button className='toggle-btn' onClick={openSidebar}>
                     <FaBars />
                 </button>
                 {/* Nav links container */}

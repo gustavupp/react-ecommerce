@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { menuLinks, socialIcons } from './constants/constants';
 import logo from './assets/logo.png'
 import './styles/sidebar.css';
 import { FaRegWindowClose } from 'react-icons/fa';
+import { AppContext } from './context';
 
 const Sidebar = () => {
+    const { isSidebarOpen, closeSidebar } = useContext(AppContext);
+
     return (
-        <main className='sidebar-main'>
+        //if isSidebarOpen is true, show the Sidebar Component
+        <main className='sidebar-main' style={{ transform: `${isSidebarOpen? 'translate(0)': 'translate(-100%)'}` }}>
             <img className='logo' src={logo} alt='logo'></img>
             <div className='links-div'>
                 <ul className='links-ul'>
@@ -33,7 +37,7 @@ const Sidebar = () => {
                         }
                     </ul>
             </div>
-            <button className='close-btn'>
+            <button className='close-btn' onClick={closeSidebar}>
                     <FaRegWindowClose />
             </button>
         </main>
