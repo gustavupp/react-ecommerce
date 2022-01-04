@@ -1,0 +1,66 @@
+$backGroundColor: #FFFFFF;
+
+@mixin displayFlex ($direction, $justifyPosition) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justifyPosition;
+}
+
+.home-featured-products {
+    @include displayFlex(row, center);
+
+    .featured-container {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 25px;
+        margin-bottom: 25px;
+
+        .individual-featured {
+            text-align: justify;
+            padding: 20px;
+            width: 300px;
+            height: auto;
+            background-color: $backGroundColor;
+            border-radius: 5px;
+
+            .title {
+                padding: 5px 0;
+            }
+
+            .price {
+                font-weight: 500;
+                padding: 5px 0;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .img-container {
+                width: 230px;
+
+                img {
+                    object-fit: contain;
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+    @media screen and (min-width: 796px) {
+        .featured-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        .featured-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}

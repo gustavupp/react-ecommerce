@@ -1,5 +1,5 @@
 .home-main {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#5bffa5), to(#baf6fa));
-  background-image: linear-gradient(to bottom, #5bffa5, #baf6fa);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#5bffa5), to(#ececec));
+  background-image: linear-gradient(to bottom, #5bffa5, #ececec);
 }
 /*# sourceMappingURL=homepage.css.map */
