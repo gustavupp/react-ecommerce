@@ -11,16 +11,16 @@ const SingleProduct = () => {
 
     useEffect(() => {
         fetchSingleProduct(id);
-    },[]);
+    },[id]);
 
     if (single_product_loading) return <Loading />;
     if (single_product_error) return <Error />;
-
-    
-    const { name , price: {formatted_with_symbol: itemPrice}, assets: [{url: url0}, {url: url1}, {url :url2}, {url: url3}], description, inventory: {available}, sku } = single_product;
-
     console.log(single_product)
 
+    const { name , price: {formatted_with_symbol: itemPrice}, assets: [{url: url0}, {url: url1}, {url :url2}, {url: url3}], description, inventory: {available}, sku } = single_product;
+    
+    console.log({name, itemPrice, url0, url1, url2, url3, description, available, sku})
+    
     return (
         <main className='single-product-main'>
             <section className='single-product-section'>

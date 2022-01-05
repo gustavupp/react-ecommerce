@@ -10,7 +10,8 @@ featured_products: [],
 isSidebarOpen: false,
 products_loading: false,
 products_error: false,
-single_product: [],
+//single product has this dummy initial value so it doesnt come as undefined before the product is fetched.
+single_product: { name: 'name' , price: {formatted_with_symbol: 'item price'}, assets: [{url:'url'}, {url:'ur1'}, {url :'url'}, {url: 'url'}], description: 'description', inventory: {available: 'available'}, sku: 'sku' },
 single_product_loading: false,
 single_product_error: false,
 }
@@ -33,7 +34,6 @@ const ProductsProvider = ({children}) => {
       dispatch({ type: 'GET_SINGLE_PRODUCT_BEGIN' });
       await commerce.products.retrieve(id).then((product) => {
        dispatch({ type: 'GET_SINGLE_PRODUCT_SUCCESS', payload: product });
-       console.log(product)
       }).catch(() => {
         dispatch({ type: 'GET_SINGLE_PRODUCT_ERROR' });
       });
