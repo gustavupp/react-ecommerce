@@ -2,12 +2,12 @@
 import React from 'react';
 import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
-import ErrorPage from './pages/ErrorPage'
+import ErrorPage from './pages/ErrorPage';
 import AllProductsPage from './pages/AllProductsPage';
-import SingleProduct from './components/SingleProduct'
+import SingleProductPage from './pages/SingleProductPage';
 import Sidebar from './components/SideBar';
 import Footer from './components/Footer';
-import AboutPage from './pages/AboutPage'
+import AboutPage from './pages/AboutPage';
 import CheckoutPage from './pages/CheckoutPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ function App() {
         <Route exact path='/products'>
           <AllProductsPage />
         </Route>
-        <Route exact path='/products/:id' children={<SingleProduct />}></Route>
+        <Route exact path='/products/:id' children={<SingleProductPage />}></Route>
         <Route exact path='/about'>
           <AboutPage />
         </Route>

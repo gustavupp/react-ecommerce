@@ -1,21 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ProductsContext } from '../context/products_context';
-import '../styles/singleProduct.css'
+import Loading from './Loading';
+import Error from './Error';
+import '../styles/singleProduct.css';
 
 const SingleProduct = () => {
-    const { products } = useContext(ProductsContext);
+    const { single_product, fetchSingleProduct, single_product_loading, single_product_error } = useContext(ProductsContext);
     const { id } = useParams();
+
+    useEffect(() => {
+        fetchSingleProduct(id);
+    },[]);
+
+    if (single_product_loading) return <Loading />;
+    if (single_product_error) return <Error />;
+
     
-    //find the item whose id matches the useParams id and straight away destructure it
-    const matchingProduct = products.find(item => item.id === id);
-    const { name , price: {formatted_with_symbol: itemPrice}, assets: [{url: url0}, {url: url1}, {url :url2}, {url: url3}], description, inventory: {available}, sku } = matchingProduct;
+    const { name , price: {formatted_with_symbol: itemPrice}, assets: [{url: url0}, {url: url1}, {url :url2}, {url: url3}], description, inventory: {available}, sku } = single_product;
+
+    console.log(single_product)
 
     return (
         <main className='single-product-main'>
-            <Link className='back-btn' to='/products' >BACK TO PRODUCTS</Link>
             <section className='single-product-section'>
                 <section className='imgs-container'>
+                    <Link className='back-btn' to='/products' >BACK TO PRODUCTS</Link>
                     <img src={url0} alt={name} />
                     <div className='thumbnails-container'>
                         <img src={url0} alt=''></img>

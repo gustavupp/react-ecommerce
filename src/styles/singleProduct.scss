@@ -10,7 +10,7 @@ $margin_padding_10px: 10px;
 
 @mixin button {
     border-radius: 5px;
-    background: rgb(74, 74, 250);
+    background: rgb(111, 111, 248);
     color: white;
     border-style: none;
     padding: 10px 15px;
@@ -22,16 +22,10 @@ $margin_padding_10px: 10px;
     width: 100%;
     padding-top: 20px;
 
-    .back-btn {
-        @include button();
-        text-decoration: none;
-        margin-left: 20px;
-    }
-
     .single-product-section {
         @include displayCenter(column,center, flex-start);
         margin: auto;
-        max-width: 900px;
+        max-width: 700px;
         padding: 20px;
 
         //margin: 20px 20px;
@@ -41,8 +35,16 @@ $margin_padding_10px: 10px;
             margin-bottom: 40px;
             width: 100%;
 
+            .back-btn {
+                @include button();
+                text-decoration: none;
+                //margin-bottom: 20px;
+                //margin-left: 20px;
+            }
+
             img {
                 width: 100%;
+                margin-top: 20px;
             }
 
             .thumbnails-container {
@@ -66,6 +68,12 @@ $margin_padding_10px: 10px;
                     }
                 }
 
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            .imgs-container {
+                margin-right: 40px;
             }
         }
 
@@ -94,5 +102,12 @@ $margin_padding_10px: 10px;
             }
         }
 
+    }
+
+    @media screen and (min-width: 900px) {
+        .single-product-section {
+            @include displayCenter(row, center, flex-start);
+            max-width: 1000px;
+        }
     }
 }

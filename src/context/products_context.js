@@ -10,6 +10,9 @@ featured_products: [],
 isSidebarOpen: false,
 products_loading: false,
 products_error: false,
+single_product: [],
+single_product_loading: false,
+single_product_error: false,
 }
 
 const ProductsProvider = ({children}) => {
@@ -22,6 +25,17 @@ const ProductsProvider = ({children}) => {
        dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: res.data });
       }).catch(() => {
         dispatch({ type: 'GET_PRODUCTS_ERROR' });
+      });
+    }
+
+    //fetch single product when a product is clicked on
+    const fetchSingleProduct = async (id) => {
+      dispatch({ type: 'GET_SINGLE_PRODUCT_BEGIN' });
+      await commerce.products.retrieve(id).then((product) => {
+       dispatch({ type: 'GET_SINGLE_PRODUCT_SUCCESS', payload: product });
+       console.log(product)
+      }).catch(() => {
+        dispatch({ type: 'GET_SINGLE_PRODUCT_ERROR' });
       });
     }
 
@@ -38,11 +52,15 @@ const ProductsProvider = ({children}) => {
       dispatch({ type: 'CLOSE_SIDEBAR' })
     }
 
+
+
     return (
    <ProductsContext.Provider value={{
      ...state,
      openSidebar,
-     closeSidebar
+     closeSidebar,
+     fetchProducts,
+     fetchSingleProduct,
    }}>
      {children}
    </ProductsContext.Provider>
