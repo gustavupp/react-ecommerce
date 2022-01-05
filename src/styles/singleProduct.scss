@@ -1,0 +1,98 @@
+$thumbnail-border-color: rgb(158, 159, 160);
+$margin_padding_10px: 10px;
+
+@mixin displayCenter($direction, $justifyPosition, $alignPosition) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyPosition;
+    align-items: $alignPosition;
+}
+
+@mixin button {
+    border-radius: 5px;
+    background: rgb(74, 74, 250);
+    color: white;
+    border-style: none;
+    padding: 10px 15px;
+    font-weight: 500;
+    font-size: 12px
+}
+
+.single-product-main {
+    width: 100%;
+    padding-top: 20px;
+
+    .back-btn {
+        @include button();
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+    .single-product-section {
+        @include displayCenter(column,center, flex-start);
+        margin: auto;
+        max-width: 900px;
+        padding: 20px;
+
+        //margin: 20px 20px;
+
+        .imgs-container {
+            margin: auto;
+            margin-bottom: 40px;
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+
+            .thumbnails-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                justify-items: center;
+                grid-gap: $margin_padding_10px;
+
+                img {
+                    cursor: pointer;
+                    height: 60px;
+                    width: 100%;
+                    border: 1px solid $thumbnail-border-color;
+                    border-radius: 5px;
+                    object-fit: cover;
+                }
+
+                @media screen and (min-width: 550px) {
+                    img {
+                        height: 100px;
+                    }
+                }
+
+            }
+        }
+
+        .info-container {
+            .product-title {
+                margin-bottom: $margin_padding_10px;
+            }
+
+            .price {
+                font-weight: 500;
+                color: tomato;
+                margin-bottom: $margin_padding_10px;
+            }
+
+            .product-description {
+                margin-bottom: $margin_padding_10px;
+            }
+
+            .aditional-info-ul {
+                list-style-type: none;
+                margin-bottom: $margin_padding_10px;
+
+                span {
+                    font-weight: 500;
+                }
+            }
+        }
+
+    }
+}

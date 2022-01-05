@@ -1,0 +1,94 @@
+.single-product-main {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.single-product-main .back-btn {
+  border-radius: 5px;
+  background: #4a4afa;
+  color: white;
+  border-style: none;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 12px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.single-product-main .single-product-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: auto;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.single-product-main .single-product-section .imgs-container {
+  margin: auto;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.single-product-main .single-product-section .imgs-container img {
+  width: 100%;
+}
+
+.single-product-main .single-product-section .imgs-container .thumbnails-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.single-product-main .single-product-section .imgs-container .thumbnails-container img {
+  cursor: pointer;
+  height: 60px;
+  width: 100%;
+  border: 1px solid #9e9fa0;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 550px) {
+  .single-product-main .single-product-section .imgs-container .thumbnails-container img {
+    height: 100px;
+  }
+}
+
+.single-product-main .single-product-section .info-container .product-title {
+  margin-bottom: 10px;
+}
+
+.single-product-main .single-product-section .info-container .price {
+  font-weight: 500;
+  color: tomato;
+  margin-bottom: 10px;
+}
+
+.single-product-main .single-product-section .info-container .product-description {
+  margin-bottom: 10px;
+}
+
+.single-product-main .single-product-section .info-container .aditional-info-ul {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.single-product-main .single-product-section .info-container .aditional-info-ul span {
+  font-weight: 500;
+}
+/*# sourceMappingURL=singleProduct.css.map */
