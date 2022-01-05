@@ -11,7 +11,7 @@ isSidebarOpen: false,
 products_loading: false,
 products_error: false,
 //single product has this dummy initial value so it doesnt come as undefined before the product is fetched.
-single_product: { name: 'name' , price: {formatted_with_symbol: 'item price'}, assets: [{url:'url'}, {url:'ur1'}, {url :'url'}, {url: 'url'}], description: 'description', inventory: {available: 'available'}, sku: 'sku' },
+single_product: { name: '' , price: {formatted_with_symbol: ''}, assets: [{url:''}, {url:''}, {url :''}, {url: ''}], description: '', inventory: {available: ''}, sku: '' },
 single_product_loading: false,
 single_product_error: false,
 }

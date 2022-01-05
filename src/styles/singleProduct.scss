@@ -25,7 +25,7 @@ $margin_padding_10px: 10px;
     .single-product-section {
         @include displayCenter(column,center, flex-start);
         margin: auto;
-        max-width: 700px;
+        max-width: 600px;
         padding: 20px;
 
         //margin: 20px 20px;
