@@ -1,0 +1,37 @@
+.individual-featured {
+  text-align: left;
+  padding: 20px;
+  min-width: 300px;
+  max-width: 350px;
+  height: 440px;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+}
+
+.individual-featured .title {
+  padding: 5px 0;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.individual-featured .price {
+  font-weight: 500;
+  padding: 5px 0;
+  color: tomato;
+}
+
+.individual-featured .description {
+  font-size: 14px;
+}
+
+.individual-featured .img-container {
+  width: 100%;
+}
+
+.individual-featured .img-container img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 250px;
+}
+/*# sourceMappingURL=productCard.css.map */

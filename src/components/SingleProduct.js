@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ProductsContext } from '../context/products_context';
 import Loading from './Loading';
 import Error from './Error';
+import AddToCart from './AddToCart';
 import '../styles/singleProduct.css';
 
 const SingleProduct = () => {
@@ -17,12 +18,12 @@ const SingleProduct = () => {
      const { name , price: {formatted_with_symbol: itemPrice}, assets, assets: [{url = ''}], description, inventory: {available}, sku } = single_product;
 
     const { id } = useParams();    //get id of the clicked product
-    const [mainImage, setMainImage] = useState(assets[0]);
-    console.log(assets[0].url)
+    const [mainImage, setMainImage] = useState(url);
 
+    //added this extra useeffect to update the initial dummy value of var url
     useEffect(() => {
-        setMainImage(assets[0]);
-    },[assets[0]])
+        setMainImage(url);
+    },[url])
 
     if (single_product_loading) return <Loading />;
     if (single_product_error) return <Error />;
@@ -32,12 +33,12 @@ const SingleProduct = () => {
             <section className='single-product-section'>
                 <section className='imgs-container'>
                     <Link className='back-btn' to='/products' >BACK TO PRODUCTS</Link>
-                    <img src={mainImage.url} alt={name} />
+                    <img className='main-img' src={mainImage} alt={name} />
                     <div className='thumbnails-container'>
                         {
                         assets.map((item, index) => {
                             const { url, filename } = item;
-                            return <img key={index} src={url} alt={filename} onClick={() => setMainImage(assets[index])}/>
+                            return <img key={index} src={url} alt={filename} onClick={() => setMainImage(url)}/>
                         })
                         }
                     </div>
@@ -50,6 +51,10 @@ const SingleProduct = () => {
                         <li key='1'><span>Amount In Stock: </span>{available}</li>
                         <li key='2'><span>SKU: </span>{sku}</li>
                     </ul>
+                    <br />
+                    <div style={{height: '2px', width: '300px', background: 'tomato'}} />
+                    
+                    <AddToCart />
                 </section>
             </section>
         </main>

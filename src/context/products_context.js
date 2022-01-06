@@ -52,8 +52,6 @@ const ProductsProvider = ({children}) => {
       dispatch({ type: 'CLOSE_SIDEBAR' })
     }
 
-
-
     return (
    <ProductsContext.Provider value={{
      ...state,

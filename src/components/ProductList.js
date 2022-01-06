@@ -3,19 +3,19 @@ import { ProductsContext } from '../context/products_context';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
 import ProductCard from '../components/ProductCard';
-import '../styles/featuredProducts.css';
+import '../styles/productList.css';
 
-const FeaturedProducts = () => {
-const { featured_products, products_loading: loading, products_error: error } = useContext(ProductsContext);
+const ProductList = () => {
+const { products, products_loading: loading, products_error: error } = useContext(ProductsContext);
 
     if (error) return <Error />;
     if (loading) return <Loading />;
 
     return (
-        <div className='home-featured-products'>
-            <div className='featured-container'>
+        <div className='product-list-container'>
+            <div className='list-container'>
                 {
-                    featured_products.map((product, index) => {
+                    products.map((product, index) => {
                         return (
                             <ProductCard key={index} {...product} />
                         )
@@ -26,4 +26,4 @@ const { featured_products, products_loading: loading, products_error: error } = 
         )
 }
 
-export default FeaturedProducts;
+export default ProductList;

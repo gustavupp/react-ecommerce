@@ -1,0 +1,36 @@
+$backGround: #f7f7f7;
+
+@mixin displayFlex ($direction, $justifyPosition) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justifyPosition;
+}
+
+.product-list-container {
+    @include displayFlex(row, center);
+    background: $backGround;
+
+    .list-container {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 25px;
+        margin: 25px 10px;
+    }
+
+    @media screen and (min-width: 796px) {
+        .list-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        .list-container {
+            grid-template-columns: repeat(3, 1fr);
+            margin: 25px 20px;
+        }
+    }
+}
