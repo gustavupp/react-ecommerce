@@ -52,9 +52,26 @@ $hover-color: grey;
         .cart-btn {
             @include btn();
             margin-right: 25px;
+             padding: 10px 0;
+            position: relative;
+
             a {
                 text-decoration: none;
                 color: $font-color;
+
+                .cart-value-sidebar {
+                    position: absolute;
+                    top: 0px;
+                    left: 56px;
+                    text-align: center;
+                    background-color: tomato;
+                    font-size: 16px;
+                    font-weight: 500;
+                    height: 24px;
+                    width: 24px;
+                    border-radius: 50%;
+                    
+                }
             }
         }
         .user-btn {

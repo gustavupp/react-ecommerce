@@ -5,9 +5,12 @@ import logo from '../assets/logo.png'
 import '../styles/sidebar.css';
 import { FaRegWindowClose, FaShoppingCart, FaUserPlus } from 'react-icons/fa';
 import { ProductsContext } from '../context/products_context';
+import { CartContext } from '../context/cart_context';
 
 const Sidebar = () => {
     const { isSidebarOpen, closeSidebar } = useContext(ProductsContext);
+    const { cart: {total_items} } = useContext(CartContext);
+
 
     return (
         //if isSidebarOpen is true, show the Sidebar Component
@@ -32,7 +35,7 @@ const Sidebar = () => {
             </div>
             <div className='cart-login-container'>
                 <button className='cart-btn' onClick={closeSidebar}>
-                    <Link to='/checkout' >Cart <FaShoppingCart /></Link>
+                    <Link to='/checkout' >Cart <FaShoppingCart /><span className='cart-value-sidebar'>{total_items}</span></Link>
                 </button>
                 <button className='user-btn'>
                     Login <FaUserPlus />{/* set up redirect to login page auth0 */}

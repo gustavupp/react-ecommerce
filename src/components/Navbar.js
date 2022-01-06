@@ -2,13 +2,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBars, FaUserPlus } from "react-icons/fa";
 import logo from '../assets/logo.png';
-import { menuLinks } from '../constants/constants'
+import { menuLinks } from '../constants/constants';
 import { socialIcons } from '../constants/constants';
-import { ProductsContext } from '../context/products_context'
+import { ProductsContext } from '../context/products_context';
+import { CartContext } from '../context/cart_context';
 import '../styles/navbar.css';
 
 const Navbar = () => {
     const { isSidebarOpen, openSidebar } = useContext(ProductsContext);
+    const { cart: {total_items} } = useContext(CartContext);
 
     return (
         <main className='main-navbar'>
@@ -39,7 +41,7 @@ const Navbar = () => {
                 </div>
                 <div className='cart-login-container'>
                     <button className='cart-btn' >
-                    <Link to='/checkout' >Cart <FaShoppingCart /></Link>
+                    <Link to='/checkout' >Cart <FaShoppingCart /><span className='cart-value'>{total_items}</span></Link>
                     </button>
                     <button className='user-btn'>
                         Login <FaUserPlus />{/* set up redirect to login page auth0 */}

@@ -15,13 +15,14 @@ const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(cartReducer, initialState);
 
     const fetchCart = async () => {
-      const cart = await commerce.cart.retrieve();
-      dispatch({ type: 'GET_CART', payload: cart });
+      dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() });
     }
 
     const addToCart = async (id, amount) => {
-      await commerce.cart.add(id, amount);
-      await fetchCart();
+      const item = await commerce.cart.add(id, amount);
+      dispatch({ type: 'GET_CART', payload: item.cart });
+      console.log(item);
+      //fetchCart();
     }
     //commerce.cart.refresh();
     const updateCart = async () => {
@@ -34,6 +35,7 @@ const CartProvider = ({ children }) => {
 
     return (
         <CartContext.Provider value={{
+            ...state,
             addToCart,
             updateCart,
         }}>

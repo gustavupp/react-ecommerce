@@ -97,11 +97,26 @@
   border-style: none;
   margin: 5px;
   margin-right: 25px;
+  padding: 10px 0;
+  position: relative;
 }
 
 .main-navbar .main-header .cart-login-container .cart-btn a {
   text-decoration: none;
   color: white;
+}
+
+.main-navbar .main-header .cart-login-container .cart-btn a .cart-value {
+  position: absolute;
+  top: 0px;
+  left: 56px;
+  text-align: center;
+  background-color: tomato;
+  font-size: 16px;
+  font-weight: 500;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
 }
 
 .main-navbar .main-header .cart-login-container .user-btn {
