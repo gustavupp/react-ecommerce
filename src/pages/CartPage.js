@@ -11,21 +11,22 @@ const CartPage = () => {
         <ShoppingCartItem />
       </div>
       <section className="order-total-section">
-        <div className="order-total-container">
-          <p className="order-subtotal">
-            Subtotal: <span className="order-subtotal-number">$640.00</span>
-          </p>
-          <p className="shipping-fee">
-            Shipping Fee: <span className="shipping-fee-number">$20.00</span>
-          </p>
-          <div className="cartpage-order-total-underline" />
-          <h3 className="order-total">
-            Order Total: <span className="order-total-number">$660.00</span>
-          </h3>
+        <div className="order-total-container-with-btn">
+          <div className="order-total-container">
+            <p className="order-subtotal">
+              Subtotal: <span className="order-subtotal-number">$640.00</span>
+            </p>
+            <p className="shipping-fee">
+              Shipping Fee: <span className="shipping-fee-number">$20.00</span>
+            </p>
+            <div className="cartpage-order-total-underline" />
+            <h3 className="order-total">
+              Order Total: <span className="order-total-number">$660.00</span>
+            </h3>
+          </div>
+          <button className="checkout-btn">CHECKOUT</button>
         </div>
       </section>
-
-      <button className="checkout-btn">CHECKOUT</button>
     </main>
   )
 }
