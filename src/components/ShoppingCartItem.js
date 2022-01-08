@@ -2,9 +2,13 @@ import React from 'react'
 import { FaPlus, FaMinus } from 'react-icons/fa'
 import { RiCloseCircleLine } from 'react-icons/ri'
 import jblEarBuds1 from '../assets/jblEarBuds1.png'
+import { useContext } from 'react'
+import { CartContext } from '../context/cart_context'
 import '../styles/shoppingCartItem.css'
 
 const ShoppingCartItem = () => {
+  const { cart } = useContext(CartContext)
+
   return (
     <>
       <div className="single-cart-item-container">

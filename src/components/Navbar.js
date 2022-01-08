@@ -9,7 +9,7 @@ import { CartContext } from '../context/cart_context'
 import '../styles/navbar.css'
 
 const Navbar = () => {
-  const { isSidebarOpen, openSidebar } = useContext(ProductsContext)
+  const { openSidebar } = useContext(ProductsContext)
   const {
     cart: { total_items },
   } = useContext(CartContext)

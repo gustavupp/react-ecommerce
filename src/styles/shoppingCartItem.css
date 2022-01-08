@@ -24,6 +24,12 @@
   margin: 20px 20px;
 }
 
+@media screen and (min-width: 600px) {
+  .single-cart-item-container .cart-img {
+    width: 130px;
+  }
+}
+
 .single-cart-item-container .cart-item-info-container {
   min-width: 310px;
 }

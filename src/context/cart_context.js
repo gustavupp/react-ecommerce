@@ -5,7 +5,11 @@ import cartReducer from '../reducers/cartReducer'
 const CartContext = React.createContext()
 
 const initialState = {
-  cart: {},
+  cart: {
+    total_items: 0,
+    line_items: [],
+    subtotal: { formatted_with_symbol: '' },
+  },
   isCartLoading: false,
 }
 
@@ -21,12 +25,18 @@ const CartProvider = ({ children }) => {
     const item = await commerce.cart.add(id, amount)
     dispatch({ type: 'GET_CART', payload: item.cart })
   }
-  //commerce.cart.refresh();
-  const updateCart = async () => {
-    const updatedCart = await commerce.cart.update('item_7RyWOwmK5nEa2V', {
-      quantity: 6,
-    })
+
+  const clearCart = async () => {
+    dispatch({ type: 'CART_IS_LOADING' })
+    await commerce.cart.refresh()
+    dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
   }
+
+  // const updateCart = async () => {
+  //   const updatedCart = await commerce.cart.update('item_7RyWOwmK5nEa2V', {
+  //     quantity: 6,
+  //   })
+  // }
 
   useEffect(() => {
     fetchCart()
@@ -37,7 +47,7 @@ const CartProvider = ({ children }) => {
       value={{
         ...state,
         addToCart,
-        updateCart,
+        clearCart,
       }}
     >
       {children}
