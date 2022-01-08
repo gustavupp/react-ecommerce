@@ -1,64 +1,96 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { ProductsContext } from '../context/products_context';
-import Loading from './Loading';
-import Error from './Error';
-import AddToCart from './AddToCart';
-import '../styles/singleProduct.css';
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { ProductsContext } from '../context/products_context'
+import { FaArrowLeft } from 'react-icons/fa'
+import Loading from './Loading'
+import Error from './Error'
+import AddToCart from './AddToCart'
+import '../styles/singleProduct.css'
 
 const SingleProduct = () => {
+  useEffect(() => {
+    fetchSingleProduct(id)
+  }, [])
 
-     useEffect(() => {
-        fetchSingleProduct(id);
-    },[]);
+  const {
+    single_product,
+    fetchSingleProduct,
+    single_product_loading,
+    single_product_error,
+  } = useContext(ProductsContext)
 
-    const { single_product, fetchSingleProduct, single_product_loading, single_product_error } = useContext(ProductsContext);
-    
-    //destructure single product
-     const { name , price: {formatted_with_symbol: itemPrice}, assets, assets: [{url = ''}], description, inventory: {available}, sku } = single_product;
+  //destructure single product
+  const {
+    name,
+    price: { formatted_with_symbol: itemPrice },
+    assets,
+    assets: [{ url = '' }],
+    description,
+    inventory: { available },
+    sku,
+  } = single_product
 
-    const { id } = useParams();    //get id of the clicked product
-    const [mainImage, setMainImage] = useState(url);
+  const { id } = useParams() //get id of the clicked product
+  const [mainImage, setMainImage] = useState(url)
 
-    //added this extra useeffect to update the initial dummy value of var url
-    useEffect(() => {
-        setMainImage(url);
-    },[url])
+  //added this extra useeffect to update the initial dummy value of var url
+  useEffect(() => {
+    setMainImage(url)
+  }, [url])
 
-    if (single_product_loading) return <Loading />;
-    if (single_product_error) return <Error />;
+  if (single_product_loading) return <Loading />
+  if (single_product_error) return <Error />
 
-    return (
-        <main className='single-product-main'>
-            <section className='single-product-section'>
-                <section className='imgs-container'>
-                    <Link className='back-btn' to='/products' >BACK TO PRODUCTS</Link>
-                    <img className='main-img' src={mainImage} alt={name} />
-                    <div className='thumbnails-container'>
-                        {
-                        assets.map((item, index) => {
-                            const { url, filename } = item;
-                            return <img key={index} src={url} alt={filename} onClick={() => setMainImage(url)}/>
-                        })
-                        }
-                    </div>
-                </section>
-                <section className='info-container'>
-                    <h2 className='product-title'>{name}</h2>
-                    <p className='price'>{itemPrice}</p>
-                    <p className='product-description' dangerouslySetInnerHTML={{__html: description}}></p>
-                    <ul className='aditional-info-ul'>
-                        <li key='1'><span>Amount In Stock: </span>{available}</li>
-                        <li key='2'><span>SKU: </span>{sku}</li>
-                    </ul>
-                    <br />
-                    <div style={{height: '2px', width: '300px', background: 'tomato'}} />
-                    
-                    <AddToCart />
-                </section>
-            </section>
-        </main>
-        )
+  return (
+    <main className="single-product-main">
+      <section className="single-product-section">
+        <section className="imgs-container">
+          <Link className="back-btn" to="/products">
+            <FaArrowLeft />
+            &nbsp;BACK TO PRODUCTS
+          </Link>
+          <img className="main-img" src={mainImage} alt={name} />
+          <div className="thumbnails-container">
+            {assets.map((item, index) => {
+              const { url, filename } = item
+              return (
+                <img
+                  key={index}
+                  src={url}
+                  alt={filename}
+                  onClick={() => setMainImage(url)}
+                />
+              )
+            })}
+          </div>
+        </section>
+        <section className="info-container">
+          <h2 className="product-title">{name}</h2>
+          <p className="price">{itemPrice}</p>
+          <p
+            className="product-description"
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></p>
+          <ul className="aditional-info-ul">
+            <li key="1">
+              <span>Amount In Stock: </span>
+              {available}
+            </li>
+            <li key="2">
+              <span>SKU: </span>
+              {sku}
+            </li>
+          </ul>
+          <br />
+          <div
+            style={{ height: '2px', width: '300px', background: 'tomato' }}
+          />
+
+          <AddToCart />
+        </section>
+      </section>
+    </main>
+  )
 }
 
-export default SingleProduct;
+export default SingleProduct

@@ -1,0 +1,101 @@
+$spacing10px: 10px;
+
+@mixin displayFlex($direction, $justifyDirection, $alignDirection) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyDirection;
+  align-items: $alignDirection;
+}
+
+.single-cart-item-container {
+  position: relative;
+  @include displayFlex(column, center, center);
+  max-width: 900px;
+  margin: auto;
+
+  .cart-img {
+    width: 180px;
+    border: 1.5px solid rgb(221, 221, 221);
+    border-radius: 5px;
+    margin: 20px 20px;
+  }
+
+  .cart-item-info-container {
+    min-width: 310px;
+
+    .cart-item-title {
+      margin-bottom: $spacing10px;
+      font-size: 19px;
+    }
+
+    .cart-price-qty-total {
+      @include displayFlex(column, center, normal);
+      max-width: 280px;
+      padding-right: 20px;
+
+      div {
+        @include displayFlex(row, space-between, center);
+
+        p[class~='label'] {
+          font-weight: 600;
+        }
+
+        p[class~='price'] {
+          padding-right: 25px;
+        }
+      }
+
+      .cart-qty-div {
+        .cart-amount {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 99px;
+          height: 50px;
+
+          .cart-btns {
+            position: absolute;
+            top: 20px;
+            border-style: none;
+            background: transparent;
+            cursor: pointer;
+          }
+
+          .cart-item-plus-btn {
+            left: 70px;
+          }
+
+          .cart-item-minus-btn {
+            left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .cart-item-delete-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-style: none;
+    background: transparent;
+    font-size: 22px;
+    color: tomato;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .single-cart-item-container {
+    flex-direction: row;
+  }
+}
+
+.line-through {
+  margin: auto;
+  max-width: 900px;
+  height: 1px;
+  background: rgb(221, 221, 221);
+}
