@@ -13,7 +13,7 @@ const CartPage = () => {
       subtotal: { formatted_with_symbol },
     },
     clearCart,
-    isCartLoading,
+    isClearCartLoading,
   } = useContext(CartContext)
 
   return (
@@ -22,12 +22,12 @@ const CartPage = () => {
       <div className="cartpage-underline" />
       <div className="cartpage-item-wrrapper">
         {line_items.map((item, index) => {
-          return <ShoppingCartItem key={index} />
+          return <ShoppingCartItem key={index} {...item} />
         })}
 
         <button
           className={`${
-            isCartLoading ? 'clear-cart-btn loading-btn' : 'clear-cart-btn'
+            isClearCartLoading ? 'clear-cart-btn loading-btn' : 'clear-cart-btn'
           }`}
           onClick={clearCart}
         >

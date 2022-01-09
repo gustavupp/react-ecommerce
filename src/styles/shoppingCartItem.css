@@ -1,3 +1,25 @@
+@-webkit-keyframes button-loading-spinner {
+  from {
+    -webkit-transform: rotate(0turn);
+            transform: rotate(0turn);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes button-loading-spinner {
+  from {
+    -webkit-transform: rotate(0turn);
+            transform: rotate(0turn);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
 .single-cart-item-container {
   position: relative;
   display: -webkit-box;
@@ -15,6 +37,28 @@
           align-items: center;
   max-width: 900px;
   margin: auto;
+}
+
+.single-cart-item-container .loading-div {
+  visibility: hidden;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 5px solid #8f8f91;
+  border-left-color: #ffffff;
+  border-right-color: #ffffff;
+  border-radius: 50%;
+  -webkit-animation: button-loading-spinner 1s ease infinite;
+          animation: button-loading-spinner 1s ease infinite;
+}
+
+.single-cart-item-container .show-loading {
+  visibility: visible;
 }
 
 .single-cart-item-container .cart-img {
@@ -82,7 +126,6 @@
 }
 
 .single-cart-item-container .cart-item-info-container .cart-price-qty-total .cart-qty-div .cart-amount {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,23 +140,14 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 99px;
-  height: 50px;
+  height: 35px;
 }
 
-.single-cart-item-container .cart-item-info-container .cart-price-qty-total .cart-qty-div .cart-amount .cart-btns {
-  position: absolute;
-  top: 20px;
-  border-style: none;
-  background: transparent;
+.single-cart-item-container .cart-item-info-container .cart-price-qty-total .cart-qty-div .cart-amount select {
+  padding: 2px 5px;
+  border-radius: 5px;
   cursor: pointer;
-}
-
-.single-cart-item-container .cart-item-info-container .cart-price-qty-total .cart-qty-div .cart-amount .cart-item-plus-btn {
-  left: 70px;
-}
-
-.single-cart-item-container .cart-item-info-container .cart-price-qty-total .cart-qty-div .cart-amount .cart-item-minus-btn {
-  left: 20px;
+  border: 1px solid #c0bfbf;
 }
 
 .single-cart-item-container .cart-item-delete-btn {

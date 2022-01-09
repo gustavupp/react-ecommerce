@@ -10,7 +10,10 @@ const initialState = {
     line_items: [],
     subtotal: { formatted_with_symbol: '' },
   },
+  availableDefault: 10,
   isCartLoading: false,
+  isClearCartLoading: false,
+  isSingleItemLoading: false,
 }
 
 const CartProvider = ({ children }) => {
@@ -27,16 +30,24 @@ const CartProvider = ({ children }) => {
   }
 
   const clearCart = async () => {
-    dispatch({ type: 'CART_IS_LOADING' })
+    dispatch({ type: 'CLEAR_CART_IS_LOADING' })
     await commerce.cart.refresh()
     dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
   }
 
-  // const updateCart = async () => {
-  //   const updatedCart = await commerce.cart.update('item_7RyWOwmK5nEa2V', {
-  //     quantity: 6,
-  //   })
-  // }
+  const removeFromCart = async (id) => {
+    dispatch({ type: 'SINGLE_ITEM_IS_LOADING' })
+    await commerce.cart.remove(id)
+    dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
+  }
+
+  const updateCartItem = async (id, qty) => {
+    dispatch({ type: 'SINGLE_ITEM_IS_LOADING' })
+    const updatedCart = await commerce.cart.update(id, {
+      quantity: qty,
+    })
+    dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
+  }
 
   useEffect(() => {
     fetchCart()
@@ -48,6 +59,8 @@ const CartProvider = ({ children }) => {
         ...state,
         addToCart,
         clearCart,
+        removeFromCart,
+        updateCartItem,
       }}
     >
       {children}
