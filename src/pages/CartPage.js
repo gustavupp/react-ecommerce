@@ -4,6 +4,7 @@ import '../styles/cartPage.css'
 import { useContext } from 'react'
 import { CartContext } from '../context/cart_context'
 import cartReducer from '../reducers/cartReducer'
+import PropTypes from 'prop-types'
 
 const CartPage = () => {
   const {

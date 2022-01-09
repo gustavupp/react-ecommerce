@@ -5,6 +5,7 @@ import Loading from '../components/Loading'
 import jblEarBuds1 from '../assets/jblEarBuds1.png'
 import { CartContext } from '../context/cart_context'
 import { ProductsContext } from '../context/products_context'
+import PropTypes from 'prop-types'
 import '../styles/shoppingCartItem.css'
 
 const ShoppingCartItem = ({
@@ -20,27 +21,34 @@ const ShoppingCartItem = ({
     useContext(CartContext)
   const { products } = useContext(ProductsContext)
   const loadingContainer = useRef(null)
-  //add or remove show-loading class from loading container based on the value of isSingleItemLoading
-  if (isSingleItemLoading)
-    loadingContainer.current.classList.add('show-loading')
-  else loadingContainer.current.classList.remove('show-loading')
+  //const [test, setTest] = useState([])
 
   //find the product that matches the id passed in and get the amount of items available
   const matchingProduct = products.find((product) => product.id === product_id)
-  const { inventory: { available = 1 } = { prop: '' } } = matchingProduct
+
   //then create a numbers array of the same size so we can use it as a drop down menu max option
-  const stockNumberArray = Array.from({ length: available }, (_, index) => {
-    return index + 1
-  })
+  const stockNumberArray = Array.from(
+    { length: matchingProduct?.inventory.available || 1 },
+    (_, index) => {
+      return index + 1
+    }
+  )
 
   const handleUpdateItem = (e) => {
     updateCartItem(id, e.target.value)
   }
 
   const handleRemoveFromCart = () => {
-    loadingContainer.current.classList.add('show-loading')
     removeFromCart(id)
   }
+
+  //add or remove show-loading class from loading container based on the value of isSingleItemLoading
+  // if (isSingleItemLoading && loadingContainer.classList !== null)
+  //   loadingContainer.current.classList?.add('show-loading')
+  // else if (!isSingleItemLoading && loadingContainer.classList !== null)
+  //   loadingContainer.current.classList?.remove('show-loading')
+  // loadingContainer.current.classList.add('show-loading')
+
   return (
     <>
       <div className="single-cart-item-container">
