@@ -15,6 +15,7 @@ const initialState = {
   isClearCartLoading: false,
   isSingleItemLoading: false,
   cartToken: {},
+  order: {},
 }
 
 const CartProvider = ({ children }) => {
@@ -57,6 +58,19 @@ const CartProvider = ({ children }) => {
     dispatch({ type: 'GET_CART_TOKEN', payload: cartToken })
   }
 
+  const handleCaptureCheckout = async (cartTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        cartTokenId,
+        newOrder
+      )
+      dispatch({ type: 'CAPTURE_ORDER', payload: incomingOrder })
+      clearCart()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     fetchCart()
   }, [])
@@ -70,6 +84,7 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         updateCartItem,
         fetchToken,
+        handleCaptureCheckout,
       }}
     >
       {children}

@@ -2,10 +2,18 @@ import React, { useContext, useState, useEffect } from 'react'
 import '../styles/shippingForm.css'
 import { CartContext } from '../context/cart_context'
 import { commerce } from '../lib/commerce'
-import { Link } from 'react-router-dom'
+import {
+  Elements,
+  CardElement,
+  ElementsConsumer,
+} from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
 const ShippingForm = () => {
-  const { cartToken, fetchToken } = useContext(CartContext)
+  const { cartToken, fetchToken, handleCaptureCheckout } =
+    useContext(CartContext)
   const [costumer, setCostumer] = useState({})
   const [countries, setCountries] = useState({})
   const [provinces, setProvinces] = useState({})
@@ -15,7 +23,7 @@ const ShippingForm = () => {
   const [formData, setFormData] = useState({})
   //if (!loggedIn) return <h1>Auth0 Login Page </h1>
   // if (loggedIn)
-  console.log(shippingOption)
+
   useEffect(() => {
     fetchToken()
   }, [])
@@ -68,7 +76,57 @@ const ShippingForm = () => {
       setShippingOption({
         desc: allShippingOptions[0]?.description,
         price: allShippingOptions[0]?.price.raw,
+        shippingId: allShippingOptions[0]?.id,
       })
+    }
+  }
+
+  const handleSubmit = async (e, elements, stripe) => {
+    e.preventDefault()
+    if (!stripe || !elements) return
+
+    const cardElement = elements.getElement(CardElement)
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+    })
+
+    if (error) console.log(error)
+    else {
+      const orderData = {
+        line_items: cartToken.live.line_items,
+        customer: {
+          firstname: costumer.fName,
+          lastname: costumer.lName,
+          email: costumer.email,
+        },
+        shipping: {
+          name: costumer.fName + costumer.lName,
+          street: costumer.address,
+          town_city: costumer.city,
+          county_state: `${country}-${province}`,
+          postal_zip_code: costumer.postalCode,
+          country: country,
+        },
+        fulfillment: { shipping_method: shippingOption.shippingId },
+
+        billing: {
+          name: costumer.fName + ' ' + costumer.lName,
+          street: costumer.address,
+          town_city: costumer.city,
+          county_state: `${country}-${province}`,
+          postal_zip_code: costumer.postalCode,
+          country: country,
+        },
+        payment: {
+          gateway: 'stripe',
+          stripe: {
+            payment_method_id: paymentMethod.id,
+          },
+        },
+      }
+      console.log(orderData)
+      handleCaptureCheckout(cartToken.id, orderData)
     }
   }
 
@@ -166,8 +224,7 @@ const ShippingForm = () => {
               </select>
               <select>
                 <option>
-                  {shippingOption.desc}&nbsp;
-                  {shippingOption.price}
+                  {shippingOption.desc}&nbsp; ${shippingOption.price}.00
                 </option>
               </select>
             </div>
@@ -176,6 +233,14 @@ const ShippingForm = () => {
           </Link> */}
           </div>
         </form>
+        <div
+          style={{
+            height: '1px',
+            width: '100%',
+            background: 'rgb(233, 233, 233)',
+            margin: '10px 0 0 0',
+          }}
+        />
         <section className="order-info">
           <h4>Order Summary</h4>
           {cartToken &&
@@ -209,10 +274,40 @@ const ShippingForm = () => {
                 cartToken.live?.subtotal.raw + parseInt(shippingOption.price)}
             </h4>
           </div>
+          <div
+            style={{
+              height: '1px',
+              width: '100%',
+              background: 'rgb(233, 233, 233)',
+              marginBottom: '20px',
+            }}
+          />
+        </section>
+        <section className="payment-section">
+          <h4>Payment Method</h4>
+          <Elements stripe={stripePromise}>
+            <ElementsConsumer>
+              {({ elements, stripe }) => (
+                <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
+                  <CardElement />
+                  <br />
+                  <div className="stripe-pay-div">
+                    <button
+                      className="stripe-pay-btn"
+                      disabled={!stripe}
+                      type="submit"
+                    >
+                      PAY $
+                      {cartToken.live?.subtotal.raw +
+                        parseInt(shippingOption.price)}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </ElementsConsumer>
+          </Elements>
         </section>
       </article>
-
-      <article className="stripe-payment">Payment</article>
     </>
   )
 }
