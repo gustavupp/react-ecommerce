@@ -14,6 +14,8 @@ const cartReducer = (state, action) => {
       return { ...state, isClearCartLoading: true }
     case 'SINGLE_ITEM_IS_LOADING':
       return { ...state, isSingleItemLoading: true }
+    case 'GET_CART_TOKEN':
+      return { ...state, cartToken: action.payload }
     default:
       throw new Error('THERE IS NO SUCH ACTION ON cartReducer.js')
   }

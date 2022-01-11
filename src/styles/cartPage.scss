@@ -142,6 +142,7 @@
       .checkout-btn {
         width: 100%;
         @include btn();
+        text-decoration: none;
       }
     }
   }

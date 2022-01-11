@@ -3,6 +3,7 @@ import ShoppingCartItem from '../components/ShoppingCartItem'
 import '../styles/cartPage.css'
 import { useContext } from 'react'
 import { CartContext } from '../context/cart_context'
+import { Link } from 'react-router-dom'
 import cartReducer from '../reducers/cartReducer'
 import PropTypes from 'prop-types'
 
@@ -56,7 +57,9 @@ const CartPage = () => {
               </span>
             </h3>
           </div>
-          <button className="checkout-btn">CHECKOUT</button>
+          <Link className="checkout-btn" to="/checkout">
+            CHECKOUT
+          </Link>
         </div>
       </section>
     </main>

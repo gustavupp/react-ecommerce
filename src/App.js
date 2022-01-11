@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import AboutPage from './pages/AboutPage'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
+import PaymentPage from './pages/PaymentPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route exact path="/checkout">
           <CheckoutPage />
+        </Route>
+        <Route exact path="/checkout/order">
+          <PaymentPage />
         </Route>
         <Route exact path="*">
           <ErrorPage />

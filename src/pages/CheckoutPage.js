@@ -1,7 +1,8 @@
-import React from 'react';
+import React from 'react'
+import ShippingForm from '../components/ShippingForm'
 
-const CheckoutPage = () =>{
-    return <h1>CheckoutPage</h1>
+const CheckoutPage = () => {
+  return <ShippingForm />
 }
 
-export default CheckoutPage;
+export default CheckoutPage

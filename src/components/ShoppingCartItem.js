@@ -20,8 +20,7 @@ const ShoppingCartItem = ({
   const { removeFromCart, updateCartItem, isSingleItemLoading } =
     useContext(CartContext)
   const { products } = useContext(ProductsContext)
-  const loadingContainer = useRef(null)
-  //const [test, setTest] = useState([])
+  const loadingContainer = useRef('')
 
   //find the product that matches the id passed in and get the amount of items available
   const matchingProduct = products.find((product) => product.id === product_id)
@@ -43,11 +42,11 @@ const ShoppingCartItem = ({
   }
 
   //add or remove show-loading class from loading container based on the value of isSingleItemLoading
-  // if (isSingleItemLoading && loadingContainer.classList !== null)
-  //   loadingContainer.current.classList?.add('show-loading')
-  // else if (!isSingleItemLoading && loadingContainer.classList !== null)
-  //   loadingContainer.current.classList?.remove('show-loading')
-  // loadingContainer.current.classList.add('show-loading')
+  if (isSingleItemLoading && loadingContainer.current)
+    loadingContainer.current.classList.add('show-loading')
+  else if (!isSingleItemLoading && loadingContainer.current)
+    loadingContainer.current.classList.remove('show-loading')
+  else loadingContainer.current = null
 
   return (
     <>

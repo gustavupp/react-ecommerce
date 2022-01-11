@@ -14,6 +14,7 @@ const initialState = {
   isCartLoading: false,
   isClearCartLoading: false,
   isSingleItemLoading: false,
+  cartToken: {},
 }
 
 const CartProvider = ({ children }) => {
@@ -49,6 +50,13 @@ const CartProvider = ({ children }) => {
     dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
   }
 
+  const fetchToken = async () => {
+    const cartToken = await commerce.checkout.generateToken(state.cart.id, {
+      type: 'cart',
+    })
+    dispatch({ type: 'GET_CART_TOKEN', payload: cartToken })
+  }
+
   useEffect(() => {
     fetchCart()
   }, [])
@@ -61,6 +69,7 @@ const CartProvider = ({ children }) => {
         clearCart,
         removeFromCart,
         updateCartItem,
+        fetchToken,
       }}
     >
       {children}
