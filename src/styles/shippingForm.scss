@@ -95,15 +95,62 @@
       .stripe-pay-div {
         .stripe-pay-btn {
           position: relative;
-
           text-decoration: none;
           margin-top: 15px;
           border-radius: 4px;
           border-style: none;
-          padding: 8px 15px;
+          padding: 5px 10px;
           background: rgb(108, 108, 248);
           color: white;
           cursor: pointer;
+          min-width: 70px;
+
+          &:active {
+            background: rgb(66, 66, 150);
+          }
+
+          .stripe-pay-btn-text {
+            padding-right: 10px;
+            font-size: 14px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.2s;
+          }
+        }
+
+        .loading-btn .stripe-pay-btn-text {
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        //button animation setup
+        .loading-btn {
+          &::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: button-loading-spinner 1s ease infinite;
+          }
+        }
+
+        //buttom loading animation
+        @keyframes button-loading-spinner {
+          from {
+            transform: rotate(0turn);
+          }
+
+          to {
+            transform: rotate(1turn);
+          }
         }
       }
     }

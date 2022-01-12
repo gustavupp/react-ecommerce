@@ -4,8 +4,7 @@ import '../styles/cartPage.css'
 import { useContext } from 'react'
 import { CartContext } from '../context/cart_context'
 import { Link } from 'react-router-dom'
-import cartReducer from '../reducers/cartReducer'
-import PropTypes from 'prop-types'
+import { FaArrowLeft } from 'react-icons/fa'
 
 const CartPage = () => {
   const {
@@ -57,9 +56,20 @@ const CartPage = () => {
               </span>
             </h3>
           </div>
-          <Link className="checkout-btn" to="/checkout">
-            CHECKOUT
-          </Link>
+          {total_items > 0 ? (
+            <Link className="checkout-btn" to="/checkout">
+              CHECKOUT
+            </Link>
+          ) : (
+            <Link
+              className="empty-cart-btn"
+              to="/products"
+              style={{ background: 'rgb(54, 54, 134)' }}
+            >
+              <FaArrowLeft />
+              &nbsp;BACK TO PRODUCTS
+            </Link>
+          )}
         </div>
       </section>
     </main>

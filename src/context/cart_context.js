@@ -14,6 +14,7 @@ const initialState = {
   isCartLoading: false,
   isClearCartLoading: false,
   isSingleItemLoading: false,
+  isPaymentLoading: false,
   cartToken: {},
   order: {},
 }
@@ -23,6 +24,10 @@ const CartProvider = ({ children }) => {
 
   const fetchCart = async () => {
     dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
+  }
+
+  const setIsPaymentLoading = () => {
+    dispatch({ type: 'SET_IS_PAYMENT_LOADING' })
   }
 
   const addToCart = async (id, amount) => {
@@ -85,6 +90,7 @@ const CartProvider = ({ children }) => {
         updateCartItem,
         fetchToken,
         handleCaptureCheckout,
+        setIsPaymentLoading,
       }}
     >
       {children}

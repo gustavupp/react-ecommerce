@@ -144,6 +144,15 @@
         @include btn();
         text-decoration: none;
       }
+
+      .empty-cart-btn {
+        text-decoration: none;
+        @include btn();
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 220px;
+      }
     }
   }
 

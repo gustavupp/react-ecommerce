@@ -1,0 +1,18 @@
+.order-completed-div {
+  text-align: center;
+  margin: 100px 0;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    background: rgb(95, 95, 255);
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+  }
+}

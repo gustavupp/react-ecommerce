@@ -1,20 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import App from './App'
-import { ProductsProvider } from './context/products_context';
-import { CartProvider } from './context/cart_context';
+import { ProductsProvider } from './context/products_context'
+import { CartProvider } from './context/cart_context'
+import { FilterProvider } from './context/filter_context'
 
 //global css
-import './styles/index.css' 
+import './styles/index.css'
 
 ReactDOM.render(
   <React.StrictMode>
     <ProductsProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
+      <FilterProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </FilterProvider>
     </ProductsProvider>
   </React.StrictMode>,
   document.getElementById('root')
-);
-
+)

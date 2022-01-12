@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import '../styles/shippingForm.css'
 import { CartContext } from '../context/cart_context'
 import { commerce } from '../lib/commerce'
+import Loading from './Loading'
+import OrderCompleted from './OrderCompleted'
 import {
   Elements,
   CardElement,
@@ -12,8 +14,14 @@ import { loadStripe } from '@stripe/stripe-js'
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
 const ShippingForm = () => {
-  const { cartToken, fetchToken, handleCaptureCheckout } =
-    useContext(CartContext)
+  const {
+    cartToken,
+    fetchToken,
+    handleCaptureCheckout,
+    cart,
+    setIsPaymentLoading,
+    isPaymentLoading,
+  } = useContext(CartContext)
   const [costumer, setCostumer] = useState({})
   const [countries, setCountries] = useState({})
   const [provinces, setProvinces] = useState({})
@@ -125,16 +133,28 @@ const ShippingForm = () => {
           },
         },
       }
-      console.log(orderData)
+
       handleCaptureCheckout(cartToken.id, orderData)
+      console.log(orderData)
     }
   }
 
+  if (cart.total_items === 0 && costumer)
+    return <OrderCompleted {...costumer} />
+
   return (
     <>
+      <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Checkout</h2>
       <article className="form-container">
-        <h2>Checkout</h2>
-        <h4>Shipping Address</h4>
+        <h4>Shipping Details</h4>
+        <div
+          style={{
+            height: '1px',
+            width: '100%',
+            background: 'rgb(233, 233, 233)',
+            margin: '0 0 30px 0',
+          }}
+        />
         <form className="shipping-form">
           <div className="first-column">
             <div>
@@ -228,30 +248,28 @@ const ShippingForm = () => {
                 </option>
               </select>
             </div>
-            {/* <Link to="/checkout/order" className="to-payment-btn">
-            Next
-          </Link> */}
           </div>
         </form>
-        <div
-          style={{
-            height: '1px',
-            width: '100%',
-            background: 'rgb(233, 233, 233)',
-            margin: '10px 0 0 0',
-          }}
-        />
+
         <section className="order-info">
-          <h4>Order Summary</h4>
+          <h4 style={{ marginTop: '20px' }}>Order Summary</h4>
+          <div
+            style={{
+              height: '1px',
+              width: '100%',
+              background: 'rgb(233, 233, 233)',
+              margin: '0 0 20px 0',
+            }}
+          />
           {cartToken &&
-            cartToken.live?.line_items.map((item) => {
+            cartToken.live?.line_items.map((item, index) => {
               const {
                 price: { raw },
                 quantity,
                 product_name,
               } = item
               return (
-                <div className="item-summary">
+                <div className="item-summary" key={index}>
                   <p className="item-title">{product_name}</p>
                   <div>
                     <p>Quantity: {quantity}</p>
@@ -269,22 +287,28 @@ const ShippingForm = () => {
           <div className="opt">
             <h4>Total:</h4>
             <h4>
-              $
-              {cartToken &&
-                cartToken.live?.subtotal.raw + parseInt(shippingOption.price)}
+              {shippingOption.price && cartToken
+                ? `$${
+                    cartToken.live?.subtotal.raw +
+                    parseInt(shippingOption.price)
+                  }`
+                : 'loading...'}
             </h4>
           </div>
+        </section>
+        <section className="payment-section">
+          <h4 style={{ marginTop: '30px' }}>Card Details</h4>
+          <p style={{ fontSize: '13px', color: 'grey', marginBottom: '10px' }}>
+            Test Card Number: 4242 4242 4242 4242
+          </p>
           <div
             style={{
               height: '1px',
               width: '100%',
               background: 'rgb(233, 233, 233)',
-              marginBottom: '20px',
+              margin: '0 0 20px 0',
             }}
           />
-        </section>
-        <section className="payment-section">
-          <h4>Payment Method</h4>
           <Elements stripe={stripePromise}>
             <ElementsConsumer>
               {({ elements, stripe }) => (
@@ -293,13 +317,24 @@ const ShippingForm = () => {
                   <br />
                   <div className="stripe-pay-div">
                     <button
-                      className="stripe-pay-btn"
+                      className={
+                        isPaymentLoading
+                          ? 'stripe-pay-btn loading-btn'
+                          : 'stripe-pay-btn'
+                      }
                       disabled={!stripe}
                       type="submit"
+                      onClick={setIsPaymentLoading}
                     >
-                      PAY $
-                      {cartToken.live?.subtotal.raw +
-                        parseInt(shippingOption.price)}
+                      {shippingOption.price ? (
+                        <span className="stripe-pay-btn-text">
+                          PAY $
+                          {cartToken.live?.subtotal.raw +
+                            parseInt(shippingOption.price)}
+                        </span>
+                      ) : (
+                        <span className="stripe-pay-btn-text loading-btn"></span>
+                      )}
                     </button>
                   </div>
                 </form>

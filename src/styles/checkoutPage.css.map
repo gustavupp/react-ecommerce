@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,wBAAwB,CAAC;EACvB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,OAAO;EACf,UAAU,EAAE,MAAM;CAUnB;;AAdD,AAME,wBANsB,CAMtB,CAAC,CAAC;EACA,eAAe,EAAE,IAAI;EACrB,UAAU,EAAE,OAAgB;EAC5B,OAAO,EAAE,QAAQ;EACjB,aAAa,EAAE,GAAG;EAClB,KAAK,EAAE,KAAK;EACZ,WAAW,EAAE,GAAG;CACjB",
+    "sources": [
+        "CheckoutPage.scss"
+    ],
+    "names": [],
+    "file": "CheckoutPage.css"
+}

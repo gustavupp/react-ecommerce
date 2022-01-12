@@ -18,6 +18,11 @@ const cartReducer = (state, action) => {
       return { ...state, cartToken: action.payload }
     case 'CAPTURE_ORDER':
       return { ...state, order: action.payload }
+    case 'SET_IS_PAYMENT_LOADING':
+      if (state.cart.length !== 0) {
+        return { ...state, isPaymentLoading: true }
+      } else return { ...state, isPaymentLoading: false }
+
     default:
       throw new Error('THERE IS NO SUCH ACTION ON cartReducer.js')
   }
