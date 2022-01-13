@@ -31,7 +31,7 @@
 
 @media screen and (min-width: 796px) {
   .main-navbar .main-header img {
-    margin-left: -30px;
+    margin-left: 30px;
   }
 }
 
@@ -66,7 +66,8 @@
   padding: 5px 10px;
 }
 
-.main-navbar .main-header .nav-links-container ul li a, .main-navbar .main-header .nav-links-container ul li a:visited {
+.main-navbar .main-header .nav-links-container ul li a,
+.main-navbar .main-header .nav-links-container ul li a:visited {
   text-decoration: none;
   color: white;
   font-weight: 500;

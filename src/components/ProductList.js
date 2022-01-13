@@ -14,6 +14,15 @@ const ProductList = () => {
   if (error) return <Error />
   if (loading) return <Loading />
 
+  if (filtered_products.length === 0)
+    return (
+      <div style={{ margin: '50px 0' }}>
+        <h4>
+          Sorry, no product matched your search. Try clearing some filters
+        </h4>
+      </div>
+    )
+
   return (
     <div className="product-list-container">
       <div className="list-container">

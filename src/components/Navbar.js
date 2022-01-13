@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart, FaBars, FaUserPlus } from 'react-icons/fa'
 import logo from '../assets/logo.png'
@@ -34,9 +34,11 @@ const Navbar = () => {
               )
             })}
             {/* will be active when user is signed in */}
-            {/* <li>
-                        <Link to='/checkout'>CHECKOUT</Link>
-                    </li> */}
+            {total_items > 0 && (
+              <li>
+                <Link to="/checkout">CHECKOUT</Link>
+              </li>
+            )}
           </ul>
         </div>
         <div className="cart-login-container">

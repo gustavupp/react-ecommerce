@@ -22,7 +22,8 @@ const cartReducer = (state, action) => {
       if (state.cart.length !== 0) {
         return { ...state, isPaymentLoading: true }
       } else return { ...state, isPaymentLoading: false }
-
+    case 'CLEAR_TOKEN':
+      return { ...state, cartToken: {} }
     default:
       throw new Error('THERE IS NO SUCH ACTION ON cartReducer.js')
   }

@@ -4,7 +4,7 @@ import { CartContext } from '../context/cart_context'
 import Loading from './Loading'
 import '../styles/orderCompleted.css'
 
-const OrderCompleted = ({ fName, lName }) => {
+const OrderCompleted = ({ fName, lName, email }) => {
   const { setIsPaymentLoading } = useContext(CartContext)
 
   useEffect(() => {
@@ -15,7 +15,17 @@ const OrderCompleted = ({ fName, lName }) => {
 
   return (
     <div className="order-completed-div">
-      <h2>Thank you for your Purchase {`${fName} ${lName}`} ! </h2>
+      <p>
+        Thank you for your Purchase{' '}
+        <span style={{ fontWeight: '600' }}>
+          {fName}&nbsp;{lName}
+        </span>
+        !
+      </p>
+      <p style={{ marginBottom: '30px' }}>
+        An email with the order details has been sent to{' '}
+        <span style={{ fontWeight: '600' }}>{email}</span>
+      </p>
       <Link to="/">Back to Home</Link>
     </div>
   )

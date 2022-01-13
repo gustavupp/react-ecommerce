@@ -1,32 +1,35 @@
 import React, { useContext } from 'react'
 import { ProductsContext } from '../context/products_context'
 import { Link } from 'react-router-dom'
-import '../styles/productCard.css'
+import '../styles/featuredProductCard.css'
 
-const ProductCard = ({
+const FeaturedProductCard = ({
   id,
   name,
   assets: [{ url }],
-  price: { formatted_with_symbol },
+  price: { formatted_with_symbol, raw },
   description,
 }) => {
   return (
-    <div className="individual-featured" key={id}>
-      <div className="img-container">
+    <div className="featured-individual" key={id}>
+      <h2 className="featured-title">{name}</h2>
+      <div className="featured-img-container">
         <Link to={`/products/${id}`}>
           <img src={url} alt={name} />
         </Link>
       </div>
-      <h2 className="title">{name}</h2>
+
       {/* <p
         className="description"
         dangerouslySetInnerHTML={{
           __html: `${description.substring(0, 60)}...`,
         }}
       ></p> */}
-      <p className="price">{formatted_with_symbol}</p>
+      <p className="featured-price">
+        {formatted_with_symbol} <span>${raw * 1.5}</span>
+      </p>
     </div>
   )
 }
 
-export default ProductCard
+export default FeaturedProductCard

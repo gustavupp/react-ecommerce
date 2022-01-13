@@ -2,150 +2,148 @@ $background-color: #131921;
 $white-color: white;
 
 //variables and mixins
-@mixin flexDisplay($direction, $justify){
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: center;
+@mixin flexDisplay($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: center;
 }
 
 @mixin btn {
-    cursor: pointer;
-    font-size: 20px;
-    color: $white-color;
-    background-color: transparent;
-    border-style: none;
-    margin: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  color: $white-color;
+  background-color: transparent;
+  border-style: none;
+  margin: 5px;
 }
-
 
 //navbar
 .main-navbar {
-    display: relative;
-    background-color: $background-color;
-    width: 100%;
+  display: relative;
+  background-color: $background-color;
+  width: 100%;
 
-    .main-header {
-        @include flexDisplay(row, space-between);
-        max-width: 1200px;
-        margin: auto;
+  .main-header {
+    @include flexDisplay(row, space-between);
+    max-width: 1200px;
+    margin: auto;
 
-        img {
-            width: 100px;
-            object-fit: contain;
-            margin: 15px 20px;
-        }
-        @media screen and (min-width: 796px) {
-            img {
-                margin-left: -30px;
-            }
-        }
-        .toggle-btn {
-            font-size: 30px;
-            background-color: transparent;
-            border-style: none;
-            color: $white-color;
-            cursor: pointer;
-            display: block;
-            margin-right: 10px;
-        }
-        @media screen and (min-width: 796px) {
-                .toggle-btn {
-                    display: none;
-                }
-        }
-        
-        .nav-links-container {
-            display: none; /*toggles */
-
-            ul {
-                list-style-type: none;
-
-                li {
-                    display: inline-block;
-                    cursor: pointer;
-                    padding: 5px 10px;
-
-                    a, a:visited {
-                        text-decoration: none;
-                        color: $white-color;
-                        font-weight: 500;
-                    }
-                }  
-            }
-        }
-        @media screen and (min-width: 796px) {
-            .nav-links-container {
-                display: inline-block; /*toggles */
-            }
-        }
-
-        .cart-login-container {
-            display: none;
-            align-items: center;
-            justify-content: center;
-
-            .cart-btn {
-                @include btn();
-                margin-right: 25px;
-                padding: 10px 0;
-                position: relative;
-
-                a {
-                    text-decoration: none;
-                    color: $white-color;
-
-                    .cart-value {
-                        position: absolute;
-                        top: 0px;
-                        left: 56px;
-                        text-align: center;
-                        background-color: tomato;
-                        font-size: 16px;
-                        font-weight: 500;
-                        height: 24px;
-                        width: 24px;
-                        border-radius: 50%;
-                        
-                    }
-                }
-            }
-            
-            .user-btn {
-                @include btn();
-            }
-        }
-        @media screen and (min-width: 796px) {
-            .cart-login-container {
-                display: inline-block; /*toggles */
-            }
-        }
-
-        .social-links-container {
-            display: none; /*toggles */
-
-            ul {
-                li {
-                    display: inline-block;
-                    list-style: none;
-                    color: $white-color;
-                    font-size: 24px;
-                    padding: 2px 5px;
-                }
-            }
-        }
-        @media screen and (min-width: 796px) {
-            .social-links-container {
-                display: block;
-                margin-right: -60px;
-            }
-        }
-        
+    img {
+      width: 100px;
+      object-fit: contain;
+      margin: 15px 20px;
     }
-
     @media screen and (min-width: 796px) {
-        .main-header {
-            justify-content: space-around;
-        }
+      img {
+        margin-left: 30px;
+      }
     }
+    .toggle-btn {
+      font-size: 30px;
+      background-color: transparent;
+      border-style: none;
+      color: $white-color;
+      cursor: pointer;
+      display: block;
+      margin-right: 10px;
+    }
+    @media screen and (min-width: 796px) {
+      .toggle-btn {
+        display: none;
+      }
+    }
+
+    .nav-links-container {
+      display: none; /*toggles */
+
+      ul {
+        list-style-type: none;
+
+        li {
+          display: inline-block;
+          cursor: pointer;
+          padding: 5px 10px;
+
+          a,
+          a:visited {
+            text-decoration: none;
+            color: $white-color;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 796px) {
+      .nav-links-container {
+        display: inline-block; /*toggles */
+      }
+    }
+
+    .cart-login-container {
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      .cart-btn {
+        @include btn();
+        margin-right: 25px;
+        padding: 10px 0;
+        position: relative;
+
+        a {
+          text-decoration: none;
+          color: $white-color;
+
+          .cart-value {
+            position: absolute;
+            top: 0px;
+            left: 56px;
+            text-align: center;
+            background-color: tomato;
+            font-size: 16px;
+            font-weight: 500;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .user-btn {
+        @include btn();
+      }
+    }
+    @media screen and (min-width: 796px) {
+      .cart-login-container {
+        display: inline-block; /*toggles */
+      }
+    }
+
+    .social-links-container {
+      display: none; /*toggles */
+
+      ul {
+        li {
+          display: inline-block;
+          list-style: none;
+          color: $white-color;
+          font-size: 24px;
+          padding: 2px 5px;
+        }
+      }
+    }
+    @media screen and (min-width: 796px) {
+      .social-links-container {
+        display: block;
+        margin-right: -60px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 796px) {
+    .main-header {
+      justify-content: space-around;
+    }
+  }
 }

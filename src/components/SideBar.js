@@ -32,10 +32,14 @@ const Sidebar = () => {
               </li>
             )
           })}
-          {/* will be active when user is logged in */}
-          {/* <li>
-                        <Link to='/checkout' onClick={closeSidebar}>CHECKOUT</Link>
-                    </li> */}
+          {/* appears when cart has at least 1 item */}
+          {total_items > 0 && (
+            <li>
+              <Link to="/checkout" onClick={closeSidebar}>
+                CHECKOUT
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="cart-login-container">

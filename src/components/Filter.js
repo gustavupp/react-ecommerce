@@ -10,7 +10,7 @@ const Filter = () => {
     updateFilters,
   } = useContext(FilterContext)
 
-  //get unique categories
+  //get all unique categories
   const allCategories = [
     'All',
     ...new Set(all_products.map((product) => product.categories[0].name)),
@@ -44,7 +44,9 @@ const Filter = () => {
         ></input>
       </div>
       <div className="filter-range">
-        <p>Price</p>
+        <p>
+          Price <span> ${price}</span>
+        </p>
         <input
           type="range"
           name="price"
@@ -54,7 +56,7 @@ const Filter = () => {
           value={price}
         ></input>
       </div>
-      <button onClick={clearFilters}>CLEAR FILTERS</button>
+      <button onClick={clearFilters}>Clear Filters</button>
     </section>
   )
 }

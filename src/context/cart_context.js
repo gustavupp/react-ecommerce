@@ -56,8 +56,8 @@ const CartProvider = ({ children }) => {
     dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
   }
 
-  const fetchToken = async () => {
-    const cartToken = await commerce.checkout.generateToken(state.cart.id, {
+  const fetchToken = async (cartId) => {
+    const cartToken = await commerce.checkout.generateToken(cartId, {
       type: 'cart',
     })
     dispatch({ type: 'GET_CART_TOKEN', payload: cartToken })
@@ -76,9 +76,12 @@ const CartProvider = ({ children }) => {
     }
   }
 
-  useEffect(() => {
-    fetchCart()
-  }, [])
+  const clearToken = () => {
+    dispatch({ type: 'CLEAR_TOKEN' })
+  }
+  // useEffect(() => {
+  //   fetchCart()
+  // }, [])
 
   return (
     <CartContext.Provider
@@ -89,6 +92,8 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         updateCartItem,
         fetchToken,
+        clearToken,
+        fetchCart,
         handleCaptureCheckout,
         setIsPaymentLoading,
       }}

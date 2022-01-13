@@ -1,23 +1,18 @@
 .individual-featured {
   text-align: left;
-  padding: 20px;
-  min-width: 300px;
-  max-width: 350px;
-  height: 440px;
+  width: 300px;
+  height: 300px;
   background-color: #ffffff;
   border-radius: 3px;
 }
 
 .individual-featured .title {
   padding: 5px 0;
-  margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .individual-featured .price {
-  font-weight: 500;
-  padding: 5px 0;
-  color: tomato;
+  font-weight: 600;
 }
 
 .individual-featured .description {
@@ -32,6 +27,12 @@
   -o-object-fit: contain;
      object-fit: contain;
   width: 100%;
-  height: 230px;
+  height: 200px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+}
+
+.individual-featured .img-container img:hover {
+  border-color: #a974ff;
 }
 /*# sourceMappingURL=productCard.css.map */

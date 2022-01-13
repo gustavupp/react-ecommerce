@@ -66,11 +66,12 @@ const SingleProduct = () => {
         </section>
         <section className="info-container">
           <h2 className="product-title">{name}</h2>
-          <p className="price">{itemPrice}</p>
+
           <p
             className="product-description"
             dangerouslySetInnerHTML={{ __html: description }}
           ></p>
+          <h2 className="price">{itemPrice}</h2>
           <ul className="aditional-info-ul">
             <li key="1">
               <span>Amount In Stock: </span>
@@ -83,7 +84,11 @@ const SingleProduct = () => {
           </ul>
           <br />
           <div
-            style={{ height: '2px', width: '300px', background: 'tomato' }}
+            style={{
+              height: '2px',
+              width: '300px',
+              background: 'rgb(100, 100, 100)',
+            }}
           />
 
           <AddToCart />

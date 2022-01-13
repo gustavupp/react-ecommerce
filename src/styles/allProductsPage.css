@@ -6,16 +6,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #f7f7f7;
+  background: #ffffff;
   padding: 25px;
 }
 
-@media screen and (min-width: 1208px) {
+@media screen and (min-width: 900px) {
   .all-products-page-main {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 /*# sourceMappingURL=allProductsPage.css.map */

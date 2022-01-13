@@ -50,6 +50,16 @@ const filterReducer = (state, action) => {
           return product.name.toLowerCase().includes(search_text)
         })
       }
+      if (category !== 'All') {
+        tempFilteredProducts = tempFilteredProducts.filter((product) => {
+          return product.categories[0].name === category
+        })
+      }
+      if (price) {
+        tempFilteredProducts = tempFilteredProducts.filter((product) => {
+          return product.price.raw <= price
+        })
+      }
       return { ...state, filtered_products: tempFilteredProducts }
     case 'CLEAR_FILTERS':
       return {

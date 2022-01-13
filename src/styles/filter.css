@@ -18,19 +18,27 @@
 }
 
 .filters-container .filter-categories ul li button {
-  margin: 5px;
+  margin: 0 10px 5px 0;
   cursor: pointer;
-  border: 1px solid grey;
+  border: 1px solid #c8c8c8;
   border-radius: 3px;
-  padding: 2px 8px;
+  padding: 3px 10px;
+  color: #3d3d3d;
+  font-weight: 600;
+  background: transparent;
 }
 
-.filters-container .filter-categories ul li .active-btn {
-  background: #525151;
+.filters-container .filter-categories ul li button:hover {
+  background: #131921;
   color: white;
 }
 
-@media screen and (min-width: 1208px) {
+.filters-container .filter-categories ul li .active-btn {
+  background: #131921;
+  color: white;
+}
+
+@media screen and (min-width: 900px) {
   .filters-container .filter-categories ul li {
     display: block;
   }
@@ -46,11 +54,33 @@
   border-radius: 3px;
 }
 
-@media screen and (min-width: 1208px) {
+.filters-container .filter-range p span {
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 900px) {
   .filters-container .filter-categories {
     -webkit-box-pack: left;
         -ms-flex-pack: left;
             justify-content: left;
+    margin-top: 80px;
   }
+}
+
+.filters-container button {
+  margin: 0 10px 5px 0;
+  cursor: pointer;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  padding: 3px 10px;
+  color: #3d3d3d;
+  font-weight: 600;
+  background: transparent;
+}
+
+.filters-container button:hover {
+  background: #131921;
+  color: white;
 }
 /*# sourceMappingURL=filter.css.map */

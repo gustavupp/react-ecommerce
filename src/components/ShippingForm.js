@@ -17,6 +17,8 @@ const ShippingForm = () => {
   const {
     cartToken,
     fetchToken,
+    fetchCart,
+    clearToken,
     handleCaptureCheckout,
     cart,
     setIsPaymentLoading,
@@ -28,12 +30,14 @@ const ShippingForm = () => {
   const [province, setProvince] = useState('')
   const [country, setCountry] = useState('')
   const [shippingOption, setShippingOption] = useState({})
-  const [formData, setFormData] = useState({})
   //if (!loggedIn) return <h1>Auth0 Login Page </h1>
   // if (loggedIn)
 
   useEffect(() => {
-    fetchToken()
+    //fetchCart()
+    fetchToken(cart.id)
+
+    //clearToken()
   }, [])
 
   useEffect(() => {
@@ -139,7 +143,12 @@ const ShippingForm = () => {
     }
   }
 
-  if (cart.total_items === 0 && costumer)
+  if (
+    cart.total_items === 0 &&
+    costumer.fName &&
+    costumer.lName &&
+    costumer.email
+  )
     return <OrderCompleted {...costumer} />
 
   return (
