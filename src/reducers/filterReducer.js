@@ -18,9 +18,13 @@ const filterReducer = (state, action) => {
         tempProducts = tempProducts.sort((a, b) => b.price.raw - a.price.raw)
       }
       if (sort === 'az') {
-        console.log(sort)
         tempProducts = tempProducts.sort((a, b) => {
-          a.name.localeCompare(b.name)
+          return a.name.localeCompare(b.name)
+        })
+      }
+      if (sort === 'za') {
+        tempProducts = tempProducts.sort((a, b) => {
+          return b.name.localeCompare(a.name)
         })
       }
       return { ...state, filtered_products: tempProducts }

@@ -7,12 +7,9 @@ import ProductCard from '../components/ProductCard'
 import '../styles/productList.css'
 
 const ProductList = () => {
-  const {
-    products,
-    products_loading: loading,
-    products_error: error,
-  } = useContext(ProductsContext)
-  const { filtered_products, all_products } = useContext(FilterContext)
+  const { products_loading: loading, products_error: error } =
+    useContext(ProductsContext)
+  const { filtered_products } = useContext(FilterContext)
 
   if (error) return <Error />
   if (loading) return <Loading />
