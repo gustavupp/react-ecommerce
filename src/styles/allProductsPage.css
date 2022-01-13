@@ -1,4 +1,21 @@
 .all-products-page-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: #f7f7f7;
+  padding: 25px;
+}
+
+@media screen and (min-width: 1208px) {
+  .all-products-page-main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 /*# sourceMappingURL=allProductsPage.css.map */

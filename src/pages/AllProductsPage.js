@@ -7,8 +7,11 @@ import '../styles/allProductsPage.css'
 const AllProductsPage = () => {
   return (
     <main className="all-products-page-main">
-      <SortFilter />
-      <ProductList />
+      <Filter />
+      <section className="product-list-and-sort-filter">
+        <SortFilter />
+        <ProductList />
+      </section>
     </main>
   )
 }

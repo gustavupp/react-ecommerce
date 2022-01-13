@@ -1,0 +1,50 @@
+.filters-container {
+  .filter-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+
+    ul {
+      li {
+        list-style-type: none;
+        display: inline-block;
+
+        button {
+          margin: 5px;
+          cursor: pointer;
+          border: 1px solid grey;
+          border-radius: 3px;
+          padding: 2px 8px;
+        }
+
+        .active-btn {
+          background: rgb(82, 81, 81);
+          color: white;
+        }
+      }
+      @media screen and (min-width: 1208px) {
+        li {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .filter-search {
+    margin-bottom: 15px;
+
+    input {
+      padding: 3px 5px;
+      border: 1px solid grey;
+      border-radius: 3px;
+    }
+  }
+
+  @media screen and (min-width: 1208px) {
+    .filter-categories {
+      justify-content: left;
+    }
+  }
+}
