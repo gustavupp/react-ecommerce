@@ -45,9 +45,9 @@ const SingleProduct = () => {
     <main className="single-product-main">
       <section className="single-product-section">
         <section className="imgs-container">
-          <Link className="back-btn" to="/products">
+          <Link className="back-btn btn" to="/products">
             <FaArrowLeft />
-            &nbsp;BACK TO PRODUCTS
+            &nbsp;Products
           </Link>
           <img className="main-img" src={mainImage} alt={name} />
           <div className="thumbnails-container">

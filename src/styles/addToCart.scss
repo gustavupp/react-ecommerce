@@ -29,24 +29,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
     margin-top: 15px;
-    border-radius: 4px;
-    border-style: none;
     padding: 5px 10px;
-    background: rgb(108, 108, 248);
-    color: white;
-    cursor: pointer;
-
-    &:active {
-      background: rgb(66, 66, 150);
-    }
 
     .cart-btn-text {
       padding-right: 10px;
       font-size: 14px;
-      color: white;
-      font-weight: 500;
+      color: #131921;
+      font-weight: 600;
       transition: all 0.2s;
     }
   }
@@ -69,7 +59,7 @@
       bottom: 0;
       margin: auto;
       border: 3px solid transparent;
-      border-top-color: #ffffff;
+      border-top-color: #131921;
       border-radius: 50%;
       animation: button-loading-spinner 1s ease infinite;
     }

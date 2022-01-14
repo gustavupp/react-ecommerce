@@ -25,14 +25,26 @@ const CartPage = () => {
         {line_items.map((item, index) => {
           return <ShoppingCartItem key={index} {...item} />
         })}
+      </div>
+      <div className="cartpage-underline" />
 
+      <div className="back-products-clear-cart-container">
+        <Link
+          style={{ fontSize: '14px' }}
+          to="/products"
+          className="continue-shopping-btn btn"
+        >
+          Continue Shopping
+        </Link>
         <button
           className={`${
-            isClearCartLoading ? 'clear-cart-btn loading-btn' : 'clear-cart-btn'
+            isClearCartLoading
+              ? 'clear-all-cart-btn loading-btn btn'
+              : 'clear-all-cart-btn btn'
           }`}
           onClick={clearCart}
         >
-          <span className="clear-cart-btn-text">Clear Cart</span>
+          <span className="clear-all-cart-btn-text">Clear Cart</span>
         </button>
       </div>
 
@@ -57,17 +69,13 @@ const CartPage = () => {
             </h3>
           </div>
           {total_items > 0 ? (
-            <Link className="checkout-btn" to="/checkout">
-              CHECKOUT
+            <Link className="go-to-checkout-btn btn" to="/checkout">
+              Checkout
             </Link>
           ) : (
-            <Link
-              className="empty-cart-btn"
-              to="/products"
-              style={{ background: 'rgb(54, 54, 134)' }}
-            >
+            <Link className="empty-cart-btn btn" to="/products">
               <FaArrowLeft />
-              &nbsp;BACK TO PRODUCTS
+              &nbsp;Back To Products
             </Link>
           )}
         </div>

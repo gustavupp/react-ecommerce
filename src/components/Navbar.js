@@ -17,9 +17,13 @@ const Navbar = () => {
   return (
     <main className="main-navbar">
       <div className="main-header">
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
+        <div className="logo-div">
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
+          <p>.com</p>
+        </div>
+
         <button className="toggle-btn" onClick={openSidebar}>
           <FaBars />
         </button>
@@ -44,7 +48,7 @@ const Navbar = () => {
         <div className="cart-login-container">
           <button className="cart-btn">
             <Link to="/cart">
-              Cart <FaShoppingCart />
+              <FaShoppingCart />
               <span className="cart-value">{total_items}</span>
             </Link>
           </button>

@@ -37,13 +37,6 @@
 
 .hero-container .article-container .products-btn {
   padding: 10px 20px;
-  background-color: #756bfc;
-  border-style: none;
-  border-radius: 3px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 14px;
 }
 
 @media screen and (min-width: 796px) {

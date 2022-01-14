@@ -10,27 +10,35 @@
   height: 100%;
   background-color: #232f3e;
   z-index: -1;
+  padding-left: 20px;
 }
 
 .sidebar-main .logo {
   width: 100px;
-  margin: 15px 10px;
+  margin: 15px 0px;
+}
+
+.sidebar-main .links-div .links-ul {
+  display: inline-block;
+  list-style-type: none;
 }
 
 .sidebar-main .links-div .links-ul li {
-  padding: 10px 10px;
+  margin-bottom: 16px;
   cursor: pointer;
 }
 
 .sidebar-main .links-div .links-ul li a,
 .sidebar-main .links-div .links-ul li a:visited {
+  padding-bottom: 5px;
   text-decoration: none;
   color: white;
   font-weight: 500;
 }
 
-.sidebar-main .links-div .links-ul li:hover {
-  background-color: grey;
+.sidebar-main .links-div .links-ul li a:hover,
+.sidebar-main .links-div .links-ul li a:visited:hover {
+  border-bottom: 2px solid #f3a847;
 }
 
 .sidebar-main .cart-login-container {
@@ -40,9 +48,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
 }
 
 .sidebar-main .cart-login-container .cart-btn {
@@ -53,8 +61,9 @@
   border-style: none;
   margin: 5px;
   margin-right: 25px;
-  padding: 10px 0;
+  padding-top: 10px;
   position: relative;
+  font-size: 30px;
 }
 
 .sidebar-main .cart-login-container .cart-btn a {
@@ -64,15 +73,16 @@
 
 .sidebar-main .cart-login-container .cart-btn a .cart-value-sidebar {
   position: absolute;
-  top: 0px;
-  left: 56px;
+  top: 3px;
+  left: 8px;
   text-align: center;
-  background-color: tomato;
-  font-size: 16px;
+  background-color: #232f3e;
+  color: #f3a847;
+  font-size: 18px;
   font-weight: 500;
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
+  height: 25px;
+  width: 27px;
+  border-radius: 40%;
 }
 
 .sidebar-main .cart-login-container .user-btn {
@@ -92,7 +102,7 @@
 }
 
 .sidebar-main .sidebar-social ul li:hover {
-  color: grey;
+  color: #f3a847;
 }
 
 .sidebar-main .close-btn {
@@ -105,6 +115,11 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  font-size: 30px;
+}
+
+.sidebar-main .close-btn:hover {
+  color: #f3a847;
 }
 
 .show-sidebar {

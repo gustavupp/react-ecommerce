@@ -39,11 +39,10 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   .product-list-container .list-container {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
-    margin: 25px 20px;
   }
 }
 /*# sourceMappingURL=productList.css.map */

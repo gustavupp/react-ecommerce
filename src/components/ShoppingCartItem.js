@@ -90,7 +90,7 @@ const ShoppingCartItem = ({
           <RiCloseCircleLine />
         </button>
       </div>
-      <div className="line-through" />
+
       <br />
     </>
   )

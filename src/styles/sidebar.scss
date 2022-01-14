@@ -1,6 +1,6 @@
 $background-color: #232f3e;
 $font-color: white;
-$hover-color: grey;
+$hover-color: #f3a847;
 
 //mixins
 @mixin btn {
@@ -22,25 +22,30 @@ $hover-color: grey;
   height: 100%;
   background-color: $background-color;
   z-index: -1;
+  padding-left: 20px;
 
   .logo {
     width: 100px;
-    margin: 15px 10px;
+    margin: 15px 0px;
   }
   .links-div {
     .links-ul {
+      display: inline-block;
+      list-style-type: none;
       li {
-        padding: 10px 10px;
+        margin-bottom: 16px;
         cursor: pointer;
 
         a,
         a:visited {
+          padding-bottom: 5px;
           text-decoration: none;
           color: $font-color;
           font-weight: 500;
-        }
-        &:hover {
-          background-color: $hover-color;
+
+          &:hover {
+            border-bottom: 2px solid $hover-color;
+          }
         }
       }
     }
@@ -49,12 +54,14 @@ $hover-color: grey;
   .cart-login-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+
     .cart-btn {
       @include btn();
       margin-right: 25px;
-      padding: 10px 0;
+      padding-top: 10px;
       position: relative;
+      font-size: 30px;
 
       a {
         text-decoration: none;
@@ -62,15 +69,16 @@ $hover-color: grey;
 
         .cart-value-sidebar {
           position: absolute;
-          top: 0px;
-          left: 56px;
+          top: 3px;
+          left: 8px;
           text-align: center;
-          background-color: tomato;
-          font-size: 16px;
+          background-color: $background-color;
+          color: $hover-color;
+          font-size: 18px;
           font-weight: 500;
-          height: 24px;
-          width: 24px;
-          border-radius: 50%;
+          height: 25px;
+          width: 27px;
+          border-radius: 40%;
         }
       }
     }
@@ -98,6 +106,11 @@ $hover-color: grey;
     position: absolute;
     top: 10px;
     right: 10px;
+    font-size: 30px;
+
+    &:hover {
+      color: $hover-color;
+    }
   }
 }
 

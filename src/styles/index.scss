@@ -1,3 +1,25 @@
+/*****GLOBAL BTN STYLING CLASS****/
+$btn-color: #f3a847;
+$btn-font-color: #131921;
+$btn-hover-color: #d3933f;
+
+.btn {
+  padding: 5px 10px;
+  background-color: $btn-color;
+  border-style: none;
+  border-radius: 5px;
+  text-decoration: none;
+  color: $btn-font-color;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background: $btn-hover-color;
+  }
+}
+/****************************************/
+
 * {
   margin: 0;
   padding: 0;

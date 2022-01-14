@@ -39,13 +39,15 @@ const AddToCart = () => {
       </button>
       <button
         className={`${
-          isCartLoading ? 'add-to-cart-btn loading-btn' : 'add-to-cart-btn'
+          isCartLoading
+            ? 'add-to-cart-btn loading-btn btn'
+            : 'add-to-cart-btn btn'
         }`}
         onClick={() => {
           addToCart(id, amount)
         }}
       >
-        <span className="cart-btn-text">ADD TO CART</span>
+        <span className="cart-btn-text">Add To Cart</span>
         <FaShoppingCart />
       </button>
     </div>

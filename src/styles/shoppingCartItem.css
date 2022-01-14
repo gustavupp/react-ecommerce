@@ -169,11 +169,4 @@
             flex-direction: row;
   }
 }
-
-.line-through {
-  margin: auto;
-  max-width: 900px;
-  height: 1px;
-  background: #dddddd;
-}
 /*# sourceMappingURL=shoppingCartItem.css.map */

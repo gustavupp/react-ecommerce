@@ -79,9 +79,10 @@ const CartProvider = ({ children }) => {
   const clearToken = () => {
     dispatch({ type: 'CLEAR_TOKEN' })
   }
-  // useEffect(() => {
-  //   fetchCart()
-  // }, [])
+
+  useEffect(() => {
+    fetchCart()
+  }, [])
 
   return (
     <CartContext.Provider

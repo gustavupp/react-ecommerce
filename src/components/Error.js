@@ -1,7 +1,11 @@
 import React from 'react'
 
 const Error = () => {
-    return <h1>There was an Error...</h1>
+  return (
+    <div style={{ margin: '150px 0', textAlign: 'center' }}>
+      <h2>There was an Error...</h2>
+    </div>
+  )
 }
 
-export default Error;
+export default Error

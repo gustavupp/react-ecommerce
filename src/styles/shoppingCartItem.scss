@@ -63,6 +63,7 @@ $spacing10px: 10px;
     .cart-item-title {
       margin-bottom: $spacing10px;
       font-size: 19px;
+      //max-width: 600px;
     }
 
     .cart-price-qty-total {
@@ -118,11 +119,4 @@ $spacing10px: 10px;
   .single-cart-item-container {
     flex-direction: row;
   }
-}
-
-.line-through {
-  margin: auto;
-  max-width: 900px;
-  height: 1px;
-  background: rgb(221, 221, 221);
 }

@@ -1,4 +1,4 @@
-$loading-color: rgb(123, 109, 255);
+$loading-color: #131921;
 
 @keyframes button-loading-spinner {
   from {
@@ -25,6 +25,7 @@ $loading-color: rgb(123, 109, 255);
     right: 0;
     bottom: 0;
     margin: auto;
+    margin-bottom: 15px;
     border: 5px solid $loading-color;
     border-left-color: transparent;
     border-right-color: transparent;

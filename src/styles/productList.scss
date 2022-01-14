@@ -20,7 +20,6 @@ $backGround: transparent;
     grid-template-rows: auto;
     gap: 25px;
     padding: 30px;
-    //margin: 25px 10px;
   }
 
   @media screen and (min-width: 700px) {
@@ -29,10 +28,9 @@ $backGround: transparent;
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1250px) {
     .list-container {
       grid-template-columns: repeat(3, 1fr);
-      margin: 25px 20px;
     }
   }
 }

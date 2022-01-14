@@ -45,25 +45,15 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  text-decoration: none;
   margin-top: 15px;
-  border-radius: 4px;
-  border-style: none;
   padding: 5px 10px;
-  background: #6c6cf8;
-  color: white;
-  cursor: pointer;
-}
-
-.add-cart-container .add-to-cart-btn:active {
-  background: #424296;
 }
 
 .add-cart-container .add-to-cart-btn .cart-btn-text {
   padding-right: 10px;
   font-size: 14px;
-  color: white;
-  font-weight: 500;
+  color: #131921;
+  font-weight: 600;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -84,7 +74,7 @@
   bottom: 0;
   margin: auto;
   border: 3px solid transparent;
-  border-top-color: #ffffff;
+  border-top-color: #131921;
   border-radius: 50%;
   -webkit-animation: button-loading-spinner 1s ease infinite;
           animation: button-loading-spinner 1s ease infinite;

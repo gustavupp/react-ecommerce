@@ -42,10 +42,11 @@ const Sidebar = () => {
           )}
         </ul>
       </div>
+      <hr style={{ width: '90%', margin: '15px 0' }} />
       <div className="cart-login-container">
         <button className="cart-btn" onClick={closeSidebar}>
           <Link to="/cart">
-            Cart <FaShoppingCart />
+            <FaShoppingCart />
             <span className="cart-value-sidebar">{total_items}</span>
           </Link>
         </button>

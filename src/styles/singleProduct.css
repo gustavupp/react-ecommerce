@@ -28,14 +28,6 @@
 }
 
 .single-product-main .single-product-section .imgs-container .back-btn {
-  border-radius: 5px;
-  background: #6f6ff8;
-  color: white;
-  border-style: none;
-  padding: 10px 15px;
-  font-weight: 500;
-  font-size: 12px;
-  text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,7 +37,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 180px;
+  max-width: 130px;
 }
 
 .single-product-main .single-product-section .imgs-container .main-img {

@@ -10,7 +10,7 @@
   padding: 25px;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 950px) {
   .all-products-page-main {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
