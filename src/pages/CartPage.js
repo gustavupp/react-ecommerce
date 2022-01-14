@@ -47,26 +47,20 @@ const CartPage = () => {
           <span className="clear-all-cart-btn-text">Clear Cart</span>
         </button>
       </div>
-
+      <br />
       <section className="order-total-section">
         <div className="order-total-container-with-btn">
           <div className="order-total-container">
+            <p className="order-items-total">
+              Total Items:
+              <span className="order-subtotal-number">{total_items}</span>
+            </p>
             <p className="order-subtotal">
-              Subtotal:{' '}
+              Subtotal:
               <span className="order-subtotal-number">
                 {formatted_with_symbol}
               </span>
             </p>
-            <p className="shipping-fee">
-              Shipping Fee: <span className="shipping-fee-number">$00.00</span>
-            </p>
-            <div className="cartpage-order-total-underline" />
-            <h3 className="order-total">
-              Order Total:
-              <span className="order-total-number">
-                {formatted_with_symbol}
-              </span>
-            </h3>
           </div>
           {total_items > 0 ? (
             <Link className="go-to-checkout-btn btn" to="/checkout">

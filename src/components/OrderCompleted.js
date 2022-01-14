@@ -26,7 +26,9 @@ const OrderCompleted = ({ fName, lName, email }) => {
         An email with the order details has been sent to{' '}
         <span style={{ fontWeight: '600' }}>{email}</span>
       </p>
-      <Link to="/">Back to Home</Link>
+      <Link className="btn" to="/">
+        Back to Home
+      </Link>
     </div>
   )
 }

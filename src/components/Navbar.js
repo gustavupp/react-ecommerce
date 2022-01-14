@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart, FaBars, FaUserPlus } from 'react-icons/fa'
 import logo from '../assets/logo.png'
@@ -9,6 +9,7 @@ import { CartContext } from '../context/cart_context'
 import '../styles/navbar.css'
 
 const Navbar = () => {
+  const [active, setActive] = useState(0)
   const { openSidebar } = useContext(ProductsContext)
   const {
     cart: { total_items },
@@ -30,10 +31,15 @@ const Navbar = () => {
         {/* Nav links container */}
         <div className="nav-links-container">
           <ul className="nav-links">
-            {menuLinks.map((link) => {
+            {menuLinks.map((link, index) => {
               return (
-                <li key={link.id}>
-                  <Link to={link.url}>{link.text}</Link>
+                <li key={link.id} onClick={() => setActive(index)}>
+                  <Link
+                    className={`${active === index ? 'active-page' : null}`}
+                    to={link.url}
+                  >
+                    {link.text}
+                  </Link>
                 </li>
               )
             })}

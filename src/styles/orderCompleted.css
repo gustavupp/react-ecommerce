@@ -6,14 +6,4 @@
 .order-completed-div h2 {
   margin-bottom: 20px;
 }
-
-.order-completed-div a {
-  text-decoration: none;
-  background: #6d6dff;
-  padding: 8px 15px;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-weight: 500;
-}
 /*# sourceMappingURL=orderCompleted.css.map */

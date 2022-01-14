@@ -6,6 +6,9 @@ import '../styles/hero.css'
 const Hero = () => {
   return (
     <div className="hero-container">
+      <div className="home-img-container">
+        <img src={smartphones}></img>
+      </div>
       <article className="article-container">
         <h1 className="title">Productivity that fits in your pocket.</h1>
         <p className="main-text">
@@ -18,9 +21,6 @@ const Hero = () => {
           SHOP NOW
         </Link>
       </article>
-      <div className="home-img-container">
-        <img src={smartphones}></img>
-      </div>
     </div>
   )
 }

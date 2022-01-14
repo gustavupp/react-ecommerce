@@ -1,5 +1,5 @@
 .form-container {
-  max-width: 500px;
+  max-width: 700px;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,18 +15,28 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 20px;
-  margin: 20px auto;
+  margin: auto;
   border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  background: white;
 }
 
 .form-container h2,
-.form-container h4 {
+.form-container h3 {
   margin-bottom: 15px;
 }
 
+.form-container .underline-form {
+  margin: auto;
+  height: 2px;
+  width: 90%;
+  background: #f3a847;
+  margin-bottom: 30px;
+}
+
 .form-container .first-column {
-  min-width: 200px;
-  max-width: 500px;
+  min-width: 300px;
+  max-width: 100%;
 }
 
 .form-container .shipping-form {
@@ -75,6 +85,10 @@
   margin-top: 20px;
 }
 
+.form-container .order-info p {
+  font-size: 16px;
+}
+
 .form-container .order-info div[class~='opt'] {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -105,26 +119,11 @@
 
 .form-container .payment-section form .stripe-pay-div .stripe-pay-btn {
   position: relative;
-  text-decoration: none;
-  margin-top: 15px;
-  border-radius: 4px;
-  border-style: none;
-  padding: 5px 10px;
-  background: #6c6cf8;
-  color: white;
-  cursor: pointer;
-  min-width: 70px;
-}
-
-.form-container .payment-section form .stripe-pay-div .stripe-pay-btn:active {
-  background: #424296;
+  padding: 8px 15px;
 }
 
 .form-container .payment-section form .stripe-pay-div .stripe-pay-btn .stripe-pay-btn-text {
-  padding-right: 10px;
   font-size: 14px;
-  color: white;
-  font-weight: 500;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -145,7 +144,7 @@
   bottom: 0;
   margin: auto;
   border: 3px solid transparent;
-  border-top-color: #ffffff;
+  border-top-color: #131921;
   border-radius: 50%;
   -webkit-animation: button-loading-spinner 1s ease infinite;
           animation: button-loading-spinner 1s ease infinite;

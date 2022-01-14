@@ -6,7 +6,11 @@ import '../styles/checkoutPage.css'
 const CheckoutPage = () => {
   const { cart } = useContext(CartContext)
 
-  return <ShippingForm />
+  return (
+    <main className="checkout-page-container">
+      <ShippingForm />
+    </main>
+  )
 }
 
 export default CheckoutPage

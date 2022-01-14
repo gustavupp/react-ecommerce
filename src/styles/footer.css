@@ -10,14 +10,9 @@
           justify-content: center;
   height: 80px;
   background-color: #131921;
-  color: white;
-}
-
-.footer-main p {
-  font-weight: 500;
 }
 
 .footer-main p span {
-  color: #9899ff;
+  color: #f3a847;
 }
 /*# sourceMappingURL=footer.css.map */

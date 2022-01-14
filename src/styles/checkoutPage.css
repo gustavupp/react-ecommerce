@@ -1,16 +1,9 @@
 .checkout-page-container {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c6d1ff), to(#ececec));
+  background-image: linear-gradient(to bottom, #c6d1ff, #ececec);
   margin: auto;
   width: 100%;
-  margin: 100px 0;
+  padding: 50px 10px;
   text-align: center;
-}
-
-.checkout-page-container a {
-  text-decoration: none;
-  background: #363686;
-  padding: 8px 15px;
-  border-radius: 5px;
-  color: white;
-  font-weight: 500;
 }
 /*# sourceMappingURL=CheckoutPage.css.map */

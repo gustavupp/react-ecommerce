@@ -35,6 +35,7 @@
 }
 
 .cartpage-main .back-products-clear-cart-container {
+  margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,7 +145,8 @@
   margin-left: 60px;
 }
 
-.cartpage-main .order-total-section .order-total-container-with-btn .order-total-container .order-subtotal {
+.cartpage-main .order-total-section .order-total-container-with-btn .order-total-container .order-subtotal,
+.cartpage-main .order-total-section .order-total-container-with-btn .order-total-container .order-items-total {
   font-weight: 600;
 }
 
@@ -155,7 +157,9 @@
   margin-bottom: 10px;
 }
 
-.cartpage-main .order-total-section .order-total-container-with-btn .empty-cart-btn {
+.cartpage-main .order-total-section .order-total-container-with-btn .empty-cart-btn,
+.cartpage-main .order-total-section .order-total-container-with-btn .go-to-checkout-btn {
+  font-size: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,7 +171,7 @@
           justify-content: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 996px) {
   .cartpage-main .order-total-section {
     -webkit-box-align: end;
         -ms-flex-align: end;

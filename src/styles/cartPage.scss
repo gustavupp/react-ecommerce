@@ -40,6 +40,7 @@ $btn-color: #f3a847;
   }
 
   .back-products-clear-cart-container {
+    margin-top: 30px;
     display: flex;
     justify-content: space-evenly;
 
@@ -119,7 +120,8 @@ $btn-color: #f3a847;
           }
         }
 
-        .order-subtotal {
+        .order-subtotal,
+        .order-items-total {
           font-weight: 600;
         }
 
@@ -131,7 +133,9 @@ $btn-color: #f3a847;
         }
       }
 
-      .empty-cart-btn {
+      .empty-cart-btn,
+      .go-to-checkout-btn {
+        font-size: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -139,7 +143,7 @@ $btn-color: #f3a847;
     }
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 996px) {
     .order-total-section {
       align-items: flex-end;
     }

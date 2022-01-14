@@ -143,6 +143,8 @@ const ShippingForm = () => {
     }
   }
 
+  /*******************************RENDER LOGIC********************************************/
+
   if (
     cart.total_items === 0 &&
     costumer.fName &&
@@ -152,207 +154,183 @@ const ShippingForm = () => {
     return <OrderCompleted {...costumer} />
 
   return (
-    <>
-      <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Checkout</h2>
-      <article className="form-container">
-        <h4>Shipping Details</h4>
-        <div
-          style={{
-            height: '1px',
-            width: '100%',
-            background: 'rgb(233, 233, 233)',
-            margin: '0 0 30px 0',
-          }}
-        />
-        <form className="shipping-form">
-          <div className="first-column">
-            <div>
-              <input
-                type="text"
-                placeholder="First Name *"
-                name="fName"
-                onChange={(e) => handleInputs(e.target)}
-                required
-              ></input>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Last Name *"
-                name="lName"
-                onChange={(e) => handleInputs(e.target)}
-                required
-              ></input>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Email *"
-                name="email"
-                onChange={(e) => handleInputs(e.target)}
-                required
-              ></input>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Address *"
-                name="address"
-                onChange={(e) => handleInputs(e.target)}
-                required
-              ></input>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="City *"
-                name="city"
-                onChange={(e) => handleInputs(e.target)}
-                required
-              ></input>
-            </div>
-            <div></div>
-            <div></div>
+    <article className="form-container">
+      <h3>Shipping Details</h3>
+      <div className="underline-form" />
+      <form className="shipping-form">
+        <div className="first-column">
+          <div>
+            <input
+              type="text"
+              placeholder="First Name *"
+              name="fName"
+              onChange={(e) => handleInputs(e.target)}
+              required
+            ></input>
           </div>
-          <div className="second-column">
-            <div>
-              <input
-                type="text"
-                name="postalCode"
-                placeholder="ZIP / Postal Code *"
-                onChange={(e) => handleInputs(e.target)}
-                required
-              ></input>
-            </div>
-            <div>
-              <select
-                name="countries"
-                id="countries"
-                onChange={(e) => setCountry(e.target.value)}
-              >
-                {countries?.countries &&
-                  Object.entries(countries.countries).map(([code, name]) => {
+          <div>
+            <input
+              type="text"
+              placeholder="Last Name *"
+              name="lName"
+              onChange={(e) => handleInputs(e.target)}
+              required
+            ></input>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Email *"
+              name="email"
+              onChange={(e) => handleInputs(e.target)}
+              required
+            ></input>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Address *"
+              name="address"
+              onChange={(e) => handleInputs(e.target)}
+              required
+            ></input>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="City *"
+              name="city"
+              onChange={(e) => handleInputs(e.target)}
+              required
+            ></input>
+          </div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className="second-column">
+          <div>
+            <input
+              type="text"
+              name="postalCode"
+              placeholder="ZIP / Postal Code *"
+              onChange={(e) => handleInputs(e.target)}
+              required
+            ></input>
+          </div>
+          <div>
+            <select
+              name="countries"
+              id="countries"
+              onChange={(e) => setCountry(e.target.value)}
+            >
+              {countries?.countries &&
+                Object.entries(countries.countries).map(([code, name]) => {
+                  return (
+                    <option key={code} value={code}>
+                      {name.length > 20 ? name.slice(0, 15) : name}
+                    </option>
+                  )
+                })}
+            </select>
+            <select onChange={(e) => setProvince(e.target.value)}>
+              {provinces?.subdivisions &&
+                Object.entries(provinces.subdivisions).map(
+                  ([code, province]) => {
                     return (
                       <option key={code} value={code}>
-                        {name.length > 20 ? name.slice(0, 15) : name}
+                        {province}
                       </option>
                     )
-                  })}
-              </select>
-              <select onChange={(e) => setProvince(e.target.value)}>
-                {provinces?.subdivisions &&
-                  Object.entries(provinces.subdivisions).map(
-                    ([code, province]) => {
-                      return (
-                        <option key={code} value={code}>
-                          {province}
-                        </option>
-                      )
-                    }
-                  )}
-              </select>
-              <select>
-                <option>
-                  {shippingOption.desc}&nbsp; ${shippingOption.price}.00
-                </option>
-              </select>
-            </div>
+                  }
+                )}
+            </select>
+            <select>
+              <option>
+                {shippingOption.desc}&nbsp; ${shippingOption.price}.00
+              </option>
+            </select>
           </div>
-        </form>
+        </div>
+      </form>
 
-        <section className="order-info">
-          <h4 style={{ marginTop: '20px' }}>Order Summary</h4>
-          <div
-            style={{
-              height: '1px',
-              width: '100%',
-              background: 'rgb(233, 233, 233)',
-              margin: '0 0 20px 0',
-            }}
-          />
-          {cartToken &&
-            cartToken.live?.line_items.map((item, index) => {
-              const {
-                price: { raw },
-                quantity,
-                product_name,
-              } = item
-              return (
-                <div className="item-summary" key={index}>
-                  <p className="item-title">{product_name}</p>
-                  <div>
-                    <p>Quantity: {quantity}</p>
-                    <p> ${quantity * raw}</p>
-                  </div>
+      <section className="order-info">
+        <h3 style={{ marginTop: '20px' }}>Order Summary</h3>
+        <div className="underline-form" />
+        {cartToken &&
+          cartToken.live?.line_items.map((item, index) => {
+            const {
+              price: { raw },
+              quantity,
+              product_name,
+            } = item
+            return (
+              <div className="item-summary" key={index}>
+                <p className="item-title">{product_name}</p>
+                <div>
+                  <p>Quantity: {quantity}</p>
+                  <p> ${quantity * raw}</p>
                 </div>
-              )
-            })}
-
-          <div className="opt">
-            <p>Shipping</p>
-            <p>${shippingOption.price}.00</p>
-          </div>
-          <br />
-          <div className="opt">
-            <h4>Total:</h4>
-            <h4>
-              {shippingOption.price && cartToken
-                ? `$${
-                    cartToken.live?.subtotal.raw +
-                    parseInt(shippingOption.price)
-                  }`
-                : 'loading...'}
-            </h4>
-          </div>
-        </section>
-        <section className="payment-section">
-          <h4 style={{ marginTop: '30px' }}>Card Details</h4>
-          <p style={{ fontSize: '13px', color: 'grey', marginBottom: '10px' }}>
-            Test Card Number: 4242 4242 4242 4242
-          </p>
-          <div
-            style={{
-              height: '1px',
-              width: '100%',
-              background: 'rgb(233, 233, 233)',
-              margin: '0 0 20px 0',
-            }}
-          />
-          <Elements stripe={stripePromise}>
-            <ElementsConsumer>
-              {({ elements, stripe }) => (
-                <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
-                  <CardElement />
-                  <br />
-                  <div className="stripe-pay-div">
-                    <button
-                      className={
-                        isPaymentLoading
-                          ? 'stripe-pay-btn loading-btn'
-                          : 'stripe-pay-btn'
-                      }
-                      disabled={!stripe}
-                      type="submit"
-                      onClick={setIsPaymentLoading}
-                    >
-                      {shippingOption.price ? (
-                        <span className="stripe-pay-btn-text">
-                          PAY $
-                          {cartToken.live?.subtotal.raw +
-                            parseInt(shippingOption.price)}
-                        </span>
-                      ) : (
-                        <span className="stripe-pay-btn-text loading-btn"></span>
-                      )}
-                    </button>
-                  </div>
-                </form>
-              )}
-            </ElementsConsumer>
-          </Elements>
-        </section>
-      </article>
-    </>
+              </div>
+            )
+          })}
+        <hr style={{ marginBottom: '10px' }} />
+        <div className="opt">
+          <p>Shipping</p>
+          <p>${shippingOption.price}.00</p>
+        </div>
+        <hr style={{ marginTop: '10px' }} />
+        <br />
+        <div className="opt">
+          <h4>Total:</h4>
+          <h4>
+            {shippingOption.price && cartToken
+              ? `$${
+                  cartToken.live?.subtotal.raw + parseInt(shippingOption.price)
+                }`
+              : 'loading...'}
+          </h4>
+        </div>
+      </section>
+      <section className="payment-section">
+        <h3 style={{ marginTop: '30px' }}>Card Details</h3>
+        <p style={{ fontSize: '13px', color: 'grey', marginBottom: '10px' }}>
+          Test Card Number: 4242 4242 4242 4242
+        </p>
+        <div className="underline-form" />
+        <Elements stripe={stripePromise}>
+          <ElementsConsumer>
+            {({ elements, stripe }) => (
+              <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
+                <CardElement />
+                <br />
+                <div className="stripe-pay-div">
+                  <button
+                    className={
+                      isPaymentLoading
+                        ? 'stripe-pay-btn btn loading-btn'
+                        : 'stripe-pay-btn btn'
+                    }
+                    disabled={!stripe}
+                    type="submit"
+                    onClick={setIsPaymentLoading}
+                  >
+                    {shippingOption.price ? (
+                      <span className="stripe-pay-btn-text btn">
+                        PAY $
+                        {cartToken.live?.subtotal.raw +
+                          parseInt(shippingOption.price)}
+                      </span>
+                    ) : (
+                      <span className="stripe-pay-btn-text loading-btn btn"></span>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
+          </ElementsConsumer>
+        </Elements>
+      </section>
+    </article>
   )
 }
 

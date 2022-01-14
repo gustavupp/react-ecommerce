@@ -93,11 +93,15 @@
   text-decoration: none;
   color: white;
   font-weight: 500;
-  padding-bottom: 5px;
+  padding-bottom: 3px;
 }
 
 .main-navbar .main-header .nav-links-container ul li a:hover {
-  border-bottom: 2px solid #f29202;
+  border-bottom: 2px solid #f3a847;
+}
+
+.main-navbar .main-header .nav-links-container ul li .active-page {
+  border-bottom: 2px solid #f3a847;
 }
 
 @media screen and (min-width: 796px) {

@@ -1,15 +1,11 @@
 .checkout-page-container {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(198, 209, 255),
+    rgb(236, 236, 236)
+  );
   margin: auto;
   width: 100%;
-  margin: 100px 0;
+  padding: 50px 10px;
   text-align: center;
-
-  a {
-    text-decoration: none;
-    background: rgb(54, 54, 134);
-    padding: 8px 15px;
-    border-radius: 5px;
-    color: white;
-    font-weight: 500;
-  }
 }

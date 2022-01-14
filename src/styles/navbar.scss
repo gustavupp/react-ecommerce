@@ -88,10 +88,14 @@ $btn-hover-color: #d3933f;
             text-decoration: none;
             color: $white-color;
             font-weight: 500;
-            padding-bottom: 5px;
+            padding-bottom: 3px;
             &:hover {
-              border-bottom: 2px solid #f29202;
+              border-bottom: 2px solid #f3a847;
             }
+          }
+
+          .active-page {
+            border-bottom: 2px solid #f3a847;
           }
         }
       }
