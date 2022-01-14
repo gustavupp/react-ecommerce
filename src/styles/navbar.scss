@@ -113,7 +113,7 @@ $btn-hover-color: #d3933f;
 
       .cart-btn {
         @include btn();
-        margin-right: 25px;
+        margin-right: 10px;
         position: relative;
         font-size: 30px;
         display: flex;
@@ -139,10 +139,6 @@ $btn-hover-color: #d3933f;
             border-radius: 45%;
           }
         }
-      }
-
-      .user-btn {
-        @include btn();
       }
     }
     @media screen and (min-width: 796px) {

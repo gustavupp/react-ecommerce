@@ -6,6 +6,9 @@ import { menuLinks } from '../constants/constants'
 import { socialIcons } from '../constants/constants'
 import { ProductsContext } from '../context/products_context'
 import { CartContext } from '../context/cart_context'
+import UserAuth from './UserAuth'
+
+//css
 import '../styles/navbar.css'
 
 const Navbar = () => {
@@ -46,7 +49,13 @@ const Navbar = () => {
             {/* will be active when user is signed in */}
             {total_items > 0 && (
               <li>
-                <Link to="/checkout">CHECKOUT</Link>
+                <Link
+                  className={`${active === 3 ? 'active-page' : null}`}
+                  to="/checkout"
+                  onClick={() => setActive(3)}
+                >
+                  CHECKOUT
+                </Link>
               </li>
             )}
           </ul>
@@ -58,10 +67,9 @@ const Navbar = () => {
               <span className="cart-value">{total_items}</span>
             </Link>
           </button>
-          <button className="user-btn">
-            Login <FaUserPlus />
-            {/* set up redirect to login page auth0 */}
-          </button>
+
+          {/* Authentication Component */}
+          <UserAuth />
         </div>
         {/* social icons container */}
         {/* <div className='social-links-container'>

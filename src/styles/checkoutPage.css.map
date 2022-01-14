@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,wBAAwB,CAAC;EACvB,gBAAgB,EAAE,4CAIjB;EACD,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,SAAS;EAClB,UAAU,EAAE,MAAM;CACnB",
     "sources": [
-        "CheckoutPage.scss"
+        "checkoutPage.scss"
     ],
     "names": [],
-    "file": "CheckoutPage.css"
+    "file": "checkoutPage.css"
 }

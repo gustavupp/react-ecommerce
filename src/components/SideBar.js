@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { menuLinks, socialIcons } from '../constants/constants'
 import logo from '../assets/logo.png'
@@ -6,8 +6,10 @@ import '../styles/sidebar.css'
 import { FaRegWindowClose, FaShoppingCart, FaUserPlus } from 'react-icons/fa'
 import { ProductsContext } from '../context/products_context'
 import { CartContext } from '../context/cart_context'
+import UserAuth from './UserAuth'
 
 const Sidebar = () => {
+  const [active, setActive] = useState(0)
   const { isSidebarOpen, closeSidebar } = useContext(ProductsContext)
   const {
     cart: { total_items },
@@ -23,10 +25,17 @@ const Sidebar = () => {
       <img className="logo" src={logo} alt="logo"></img>
       <div className="links-div">
         <ul className="links-ul">
-          {menuLinks.map((link) => {
+          {menuLinks.map((link, index) => {
             return (
               <li key={link.id}>
-                <Link to={link.url} onClick={closeSidebar}>
+                <Link
+                  className={`${active === index ? 'active-page' : null}`}
+                  to={link.url}
+                  onClick={() => {
+                    setActive(index)
+                    closeSidebar()
+                  }}
+                >
                   {link.text}
                 </Link>
               </li>
@@ -35,7 +44,14 @@ const Sidebar = () => {
           {/* appears when cart has at least 1 item */}
           {total_items > 0 && (
             <li>
-              <Link to="/checkout" onClick={closeSidebar}>
+              <Link
+                className={`${active === 3 ? 'active-page' : null}`}
+                to="/checkout"
+                onClick={() => {
+                  setActive(3)
+                  closeSidebar()
+                }}
+              >
                 CHECKOUT
               </Link>
             </li>
@@ -50,10 +66,9 @@ const Sidebar = () => {
             <span className="cart-value-sidebar">{total_items}</span>
           </Link>
         </button>
-        <button className="user-btn">
-          Login <FaUserPlus />
-          {/* set up redirect to login page auth0 */}
-        </button>
+
+        {/* Authentication Component */}
+        <UserAuth />
       </div>
       <div className="sidebar-social">
         <ul>

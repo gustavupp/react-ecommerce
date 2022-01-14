@@ -1,0 +1,22 @@
+.login-logout-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .user-btn {
+    font-size: 30px;
+    color: white;
+    background-color: transparent;
+    border-style: none;
+    margin-top: 6px;
+    cursor: pointer;
+  }
+
+  div {
+    //margin-left: 19px;
+    p {
+      color: white;
+    }
+  }
+}

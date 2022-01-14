@@ -47,6 +47,10 @@ $hover-color: #f3a847;
             border-bottom: 2px solid $hover-color;
           }
         }
+
+        .active-page {
+          border-bottom: 2px solid $hover-color;
+        }
       }
     }
   }
@@ -81,9 +85,6 @@ $hover-color: #f3a847;
           border-radius: 40%;
         }
       }
-    }
-    .user-btn {
-      @include btn();
     }
   }
 
