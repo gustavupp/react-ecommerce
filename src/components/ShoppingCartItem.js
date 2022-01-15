@@ -1,11 +1,7 @@
-import React, { useContext, useEffect, useState, useRef } from 'react'
-import { FaPlus, FaMinus } from 'react-icons/fa'
+import React, { useContext, useRef } from 'react'
 import { RiCloseCircleLine } from 'react-icons/ri'
-import Loading from '../components/Loading'
-import jblEarBuds1 from '../assets/jblEarBuds1.png'
 import { CartContext } from '../context/cart_context'
 import { ProductsContext } from '../context/products_context'
-import PropTypes from 'prop-types'
 import '../styles/shoppingCartItem.css'
 
 const ShoppingCartItem = ({

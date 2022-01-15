@@ -1,7 +1,6 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import FeaturedProducts from '../components/FeaturedProducts'
-import amazon_banner from '../assets/amazon_banner.jpg'
 import '../styles/homepage.css'
 
 const HomePage = () => {

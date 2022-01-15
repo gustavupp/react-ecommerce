@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { ProductsContext } from '../context/products_context'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/productCard.css'
 
@@ -8,7 +7,6 @@ const ProductCard = ({
   name,
   assets: [{ url }],
   price: { formatted_with_symbol },
-  description,
 }) => {
   return (
     <div className="individual-featured" key={id}>

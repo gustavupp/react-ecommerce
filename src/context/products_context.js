@@ -1,4 +1,4 @@
-import React, { useContext, useState, useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import productsReducer from '../reducers/productsReducer'
 import { commerce } from '../lib/commerce'
 

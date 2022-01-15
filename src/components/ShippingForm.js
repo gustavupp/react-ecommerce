@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import '../styles/shippingForm.css'
 import { CartContext } from '../context/cart_context'
 import { commerce } from '../lib/commerce'
-import Loading from './Loading'
 import OrderCompleted from './OrderCompleted'
 import {
   Elements,
@@ -17,8 +16,6 @@ const ShippingForm = () => {
   const {
     cartToken,
     fetchToken,
-    fetchCart,
-    clearToken,
     handleCaptureCheckout,
     cart,
     setIsPaymentLoading,

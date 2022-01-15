@@ -4,7 +4,6 @@ import '../styles/cartPage.css'
 import { useContext } from 'react'
 import { CartContext } from '../context/cart_context'
 import { Link } from 'react-router-dom'
-import { FaArrowLeft } from 'react-icons/fa'
 import { AuthenticationContext } from '../context/auth0_context'
 
 const CartPage = () => {

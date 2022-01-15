@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { FaUserPlus } from 'react-icons/fa'
 import { BiLogIn, BiLogOut } from 'react-icons/bi'
 import { AuthenticationContext } from '../context/auth0_context'
 //css

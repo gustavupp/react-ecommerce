@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { FaPlus, FaMinus, FaShoppingCart, FaArrowLeft } from 'react-icons/fa'
+import { FaPlus, FaMinus, FaShoppingCart } from 'react-icons/fa'
 import { CartContext } from '../context/cart_context'
 import { ProductsContext } from '../context/products_context'
 import '../styles/addToCart.css'
