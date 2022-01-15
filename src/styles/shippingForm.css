@@ -120,6 +120,7 @@
 .form-container .payment-section form .stripe-pay-div .stripe-pay-btn {
   position: relative;
   padding: 8px 15px;
+  width: 100%;
 }
 
 .form-container .payment-section form .stripe-pay-div .stripe-pay-btn .stripe-pay-btn-text {

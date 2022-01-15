@@ -31,6 +31,10 @@ const ShippingForm = () => {
   const [country, setCountry] = useState('')
   const [shippingOption, setShippingOption] = useState({})
 
+  //STRIPE STATES
+  const [errorMsg, setErrorMsg] = useState(null)
+  const [disabled, setDisabled] = useState(true)
+
   useEffect(() => {
     fetchToken(cart.id)
   }, [])
@@ -88,6 +92,14 @@ const ShippingForm = () => {
     }
   }
 
+  //show stripe validation error message as user fills the card info
+  const handleChange = async (e) => {
+    console.log(e.empty)
+    setDisabled(e.empty)
+    setErrorMsg(e.error ? e.error.message : '')
+  }
+
+  //send data to stripe and CommerceJs when form is submitted
   const handleSubmit = async (e, elements, stripe) => {
     e.preventDefault()
     if (!stripe || !elements) return
@@ -98,8 +110,11 @@ const ShippingForm = () => {
       card: cardElement,
     })
 
+    //if there is an error
     if (error) console.log(error)
+    //if there is no error and card info is complete
     else {
+      //create a data object with all the required costumer info
       const orderData = {
         line_items: cartToken.live.line_items,
         customer: {
@@ -285,6 +300,8 @@ const ShippingForm = () => {
           </h4>
         </div>
       </section>
+
+      {/**********************PAYMENT SECTION****************************/}
       <section className="payment-section">
         <h3 style={{ marginTop: '30px' }}>Card Details</h3>
         <div className="underline-form" />
@@ -312,11 +329,15 @@ const ShippingForm = () => {
           Click To Copy: 4242 4242 4242 4242
         </p>
 
+        {/************ STRIPE CARD FORM ***************/}
         <Elements stripe={stripePromise}>
           <ElementsConsumer>
             {({ elements, stripe }) => (
-              <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
-                <CardElement />
+              <form
+                className="payment-form"
+                onSubmit={(e) => handleSubmit(e, elements, stripe)}
+              >
+                <CardElement onChange={handleChange} />
                 <br />
                 <div className="stripe-pay-div">
                   <button
@@ -325,13 +346,29 @@ const ShippingForm = () => {
                         ? 'stripe-pay-btn btn loading-btn'
                         : 'stripe-pay-btn btn'
                     }
-                    disabled={!stripe}
+                    //only enable the button if all shipping fields have been filled and stripe is true
+                    disabled={!stripe || disabled}
                     type="submit"
-                    onClick={setIsPaymentLoading}
+                    onClick={() => {
+                      if (
+                        !costumer.fName ||
+                        !costumer.lName ||
+                        !costumer.address ||
+                        !costumer.email ||
+                        !costumer.postalCode ||
+                        !costumer.city ||
+                        errorMsg ||
+                        disabled
+                      ) {
+                        alert(
+                          'Please, Fill Out All Costumer, Shipping and Card Details Correctly'
+                        )
+                      } else setIsPaymentLoading()
+                    }}
                   >
                     {shippingOption.price ? (
                       <span className="stripe-pay-btn-text">
-                        PAY $
+                        PAY USD$
                         {cartToken.live?.subtotal.raw +
                           parseInt(shippingOption.price)}
                       </span>
@@ -344,6 +381,10 @@ const ShippingForm = () => {
             )}
           </ElementsConsumer>
         </Elements>
+        <p style={{ padding: '10px 0', fontSize: '14px', color: 'red' }}>
+          {disabled ? 'Card Information Is Empty' : errorMsg}
+        </p>
+        {/*******************************/}
       </section>
     </article>
   )
