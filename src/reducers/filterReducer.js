@@ -42,8 +42,7 @@ const filterReducer = (state, action) => {
       return { ...state, filters: { ...state.filters, [name]: value } }
     case 'FILTER_PRODUCTS':
       const { all_products } = state
-      const { max_price, min_price, price, search_text, category } =
-        state.filters
+      const { price, search_text, category } = state.filters
       let tempFilteredProducts = [...all_products]
       if (search_text) {
         tempFilteredProducts = tempFilteredProducts.filter((product) => {

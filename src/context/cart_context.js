@@ -50,9 +50,7 @@ const CartProvider = ({ children }) => {
 
   const updateCartItem = async (id, qty) => {
     dispatch({ type: 'SINGLE_ITEM_IS_LOADING' })
-    const updatedCart = await commerce.cart.update(id, {
-      quantity: qty,
-    })
+    await commerce.cart.update(id, { quantity: qty })
     dispatch({ type: 'GET_CART', payload: await commerce.cart.retrieve() })
   }
 

@@ -34,19 +34,21 @@ const ShippingForm = () => {
 
   useEffect(() => {
     fetchToken(cart.id)
-  }, [])
+    // eslint-disable-next-line
+  }, [cart.id])
 
   useEffect(() => {
     fetchCountries(cartToken.id)
-  }, [])
+    // eslint-disable-next-line
+  }, [cartToken.id])
 
   useEffect(() => {
     fetchProvinces(cartToken.id, country)
-  }, [country])
+  }, [country, cartToken.id])
 
   useEffect(() => {
     fetchShippingOptions(cartToken.id, country, province)
-  }, [province])
+  }, [province, cartToken.id, country])
 
   const handleInputs = (field) => {
     setCostumer({ ...costumer, [field.name]: field.value })

@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="hero-container">
       <div className="home-img-container">
-        <img src={smartphones}></img>
+        <img src={smartphones} alt="eletronic devices"></img>
       </div>
       <article className="article-container">
         <h1 className="title">Productivity that fits in your pocket.</h1>

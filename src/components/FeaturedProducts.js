@@ -3,7 +3,7 @@ import { ProductsContext } from '../context/products_context'
 import Error from '../components/Error'
 import Loading from '../components/Loading'
 import FeaturedProductCard from '../components/FeaturedProductCard'
-import '../styles/featuredProduct.css'
+import '../styles/featuredProducts.css'
 
 const FeaturedProducts = () => {
   const {

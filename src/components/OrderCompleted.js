@@ -9,6 +9,7 @@ const OrderCompleted = ({ fName, lName, email }) => {
 
   useEffect(() => {
     setIsPaymentLoading()
+    // eslint-disable-next-line
   }, [])
 
   if (!fName) return <Loading />

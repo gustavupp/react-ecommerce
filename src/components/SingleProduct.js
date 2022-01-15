@@ -10,6 +10,7 @@ import '../styles/singleProduct.css'
 const SingleProduct = () => {
   useEffect(() => {
     fetchSingleProduct(id)
+    // eslint-disable-next-line
   }, [])
 
   const {

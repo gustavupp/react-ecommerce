@@ -5,15 +5,12 @@ const AuthenticationContext = React.createContext()
 
 const AuthenticationProvider = ({ children }) => {
   const [myUser, setMyUser] = useState(null)
-  const { logout, loginWithRedirect, user, isAuthenticated, isLoading } =
-    useAuth0()
+  const { logout, loginWithRedirect, user, isAuthenticated } = useAuth0()
 
   useEffect(() => {
     if (isAuthenticated) setMyUser(user)
     else setMyUser(false)
-
-    console.log({ user, isAuthenticated, isLoading })
-  }, [isAuthenticated])
+  }, [isAuthenticated, user])
 
   return (
     <AuthenticationContext.Provider

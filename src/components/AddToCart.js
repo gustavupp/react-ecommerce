@@ -11,11 +11,7 @@ const AddToCart = () => {
     },
     single_product: { id },
   } = useContext(ProductsContext)
-  const {
-    addToCart,
-    isCartLoading,
-    cart: { total_items },
-  } = useContext(CartContext)
+  const { addToCart, isCartLoading } = useContext(CartContext)
   const [amount, setAmount] = useState(1)
 
   const addToAmount = () => {
