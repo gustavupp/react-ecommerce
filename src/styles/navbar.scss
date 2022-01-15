@@ -21,23 +21,15 @@ $btn-hover-color: #d3933f;
 
 //navbar
 .main-navbar {
-  display: relative;
+  position: relative;
   background-color: $background-color;
   width: 100%;
+  position: fixed;
 
   .main-header {
     @include flexDisplay(row, space-between);
     max-width: 1200px;
     margin: auto;
-
-    // .logo-div {
-    //   .logo-text {
-    //     color: $white-color;
-    //     font-size: 14px;
-    //     font-weight: 400;
-    //     margin-left: -18px;
-    //   }
-    // }
 
     .logo-div {
       display: flex;
@@ -176,5 +168,11 @@ $btn-hover-color: #d3933f;
     .main-header {
       justify-content: space-around;
     }
+  }
+}
+
+@media screen and (min-width: 796px) {
+  .main-navbar {
+    position: relative;
   }
 }
