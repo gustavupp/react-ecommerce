@@ -22,7 +22,7 @@
   margin: auto;
 }
 
-.main-navbar .main-header div {
+.main-navbar .main-header .logo-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,24 +34,18 @@
           justify-content: center;
 }
 
-.main-navbar .main-header div img {
+.main-navbar .main-header .logo-div img {
   width: 100px;
   -o-object-fit: contain;
      object-fit: contain;
   margin: 15px 20px;
 }
 
-.main-navbar .main-header div p {
+.main-navbar .main-header .logo-div .logo-text {
   color: white;
   font-size: 14px;
   font-weight: 400;
   margin-left: -18px;
-}
-
-@media screen and (min-width: 796px) {
-  .main-navbar .main-header div img {
-    margin-left: 30px;
-  }
 }
 
 .main-navbar .main-header .toggle-btn {

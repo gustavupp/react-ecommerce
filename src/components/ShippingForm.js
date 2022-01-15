@@ -30,14 +30,9 @@ const ShippingForm = () => {
   const [province, setProvince] = useState('')
   const [country, setCountry] = useState('')
   const [shippingOption, setShippingOption] = useState({})
-  //if (!loggedIn) return <h1>Auth0 Login Page </h1>
-  // if (loggedIn)
 
   useEffect(() => {
-    //fetchCart()
     fetchToken(cart.id)
-
-    //clearToken()
   }, [])
 
   useEffect(() => {
@@ -144,7 +139,6 @@ const ShippingForm = () => {
   }
 
   /*******************************RENDER LOGIC********************************************/
-
   if (
     cart.total_items === 0 &&
     costumer.fName &&
@@ -293,10 +287,31 @@ const ShippingForm = () => {
       </section>
       <section className="payment-section">
         <h3 style={{ marginTop: '30px' }}>Card Details</h3>
-        <p style={{ fontSize: '13px', color: 'grey', marginBottom: '10px' }}>
-          Test Card Number: 4242 4242 4242 4242
-        </p>
         <div className="underline-form" />
+        <p
+          style={{
+            fontSize: '13px',
+            color: 'grey',
+            marginBottom: '10px',
+            cursor: 'pointer',
+
+            maxWidth: '300px',
+            margin: '10px auto',
+            borderRadius: '5px',
+          }}
+          //copy to clipboard functionality
+          onClick={(e) => {
+            navigator.clipboard.writeText('4242 4242 4242 4242')
+            e.target.textContent = 'Card Number Copied To Clipboard'
+
+            setTimeout(() => {
+              e.target.textContent = 'Click To Copy: 4242 4242 4242 4242'
+            }, 3000)
+          }}
+        >
+          Click To Copy: 4242 4242 4242 4242
+        </p>
+
         <Elements stripe={stripePromise}>
           <ElementsConsumer>
             {({ elements, stripe }) => (
@@ -315,7 +330,7 @@ const ShippingForm = () => {
                     onClick={setIsPaymentLoading}
                   >
                     {shippingOption.price ? (
-                      <span className="stripe-pay-btn-text btn">
+                      <span className="stripe-pay-btn-text">
                         PAY $
                         {cartToken.live?.subtotal.raw +
                           parseInt(shippingOption.price)}

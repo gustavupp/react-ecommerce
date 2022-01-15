@@ -30,7 +30,16 @@ $btn-hover-color: #d3933f;
     max-width: 1200px;
     margin: auto;
 
-    div {
+    // .logo-div {
+    //   .logo-text {
+    //     color: $white-color;
+    //     font-size: 14px;
+    //     font-weight: 400;
+    //     margin-left: -18px;
+    //   }
+    // }
+
+    .logo-div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,16 +50,11 @@ $btn-hover-color: #d3933f;
         margin: 15px 20px;
       }
 
-      p {
+      .logo-text {
         color: $white-color;
         font-size: 14px;
         font-weight: 400;
         margin-left: -18px;
-      }
-      @media screen and (min-width: 796px) {
-        img {
-          margin-left: 30px;
-        }
       }
     }
 

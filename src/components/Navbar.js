@@ -10,6 +10,7 @@ import UserAuth from './UserAuth'
 
 //css
 import '../styles/navbar.css'
+import { AuthenticationContext } from '../context/auth0_context'
 
 const Navbar = () => {
   const [active, setActive] = useState(0)
@@ -17,6 +18,7 @@ const Navbar = () => {
   const {
     cart: { total_items },
   } = useContext(CartContext)
+  const { myUser } = useContext(AuthenticationContext)
 
   return (
     <main className="main-navbar">
@@ -25,7 +27,7 @@ const Navbar = () => {
           <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
-          <p>.com</p>
+          <p className="logo-text">.com</p>
         </div>
 
         <button className="toggle-btn" onClick={openSidebar}>
@@ -47,7 +49,7 @@ const Navbar = () => {
               )
             })}
             {/* will be active when user is signed in */}
-            {total_items > 0 && (
+            {total_items > 0 && myUser && (
               <li>
                 <Link
                   className={`${active === 3 ? 'active-page' : null}`}

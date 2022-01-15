@@ -11,6 +11,7 @@ import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
 import PaymentPage from './pages/PaymentPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import PrivateRoute from './pages/PrivateRoute'
 
 function App() {
   return (
@@ -35,9 +36,9 @@ function App() {
         <Route exact path="/cart">
           <CartPage />
         </Route>
-        <Route exact path="/checkout">
+        <PrivateRoute exact path="/checkout">
           <CheckoutPage />
-        </Route>
+        </PrivateRoute>
         <Route exact path="/checkout/order">
           <PaymentPage />
         </Route>

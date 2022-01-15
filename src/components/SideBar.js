@@ -6,6 +6,7 @@ import '../styles/sidebar.css'
 import { FaRegWindowClose, FaShoppingCart, FaUserPlus } from 'react-icons/fa'
 import { ProductsContext } from '../context/products_context'
 import { CartContext } from '../context/cart_context'
+import { AuthenticationContext } from '../context/auth0_context'
 import UserAuth from './UserAuth'
 
 const Sidebar = () => {
@@ -14,6 +15,7 @@ const Sidebar = () => {
   const {
     cart: { total_items },
   } = useContext(CartContext)
+  const { myUser } = useContext(AuthenticationContext)
 
   return (
     //if isSidebarOpen is true, show the Sidebar Component
@@ -42,7 +44,7 @@ const Sidebar = () => {
             )
           })}
           {/* appears when cart has at least 1 item */}
-          {total_items > 0 && (
+          {total_items > 0 && myUser && (
             <li>
               <Link
                 className={`${active === 3 ? 'active-page' : null}`}

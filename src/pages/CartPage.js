@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { CartContext } from '../context/cart_context'
 import { Link } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
+import { AuthenticationContext } from '../context/auth0_context'
 
 const CartPage = () => {
   const {
@@ -16,6 +17,7 @@ const CartPage = () => {
     clearCart,
     isClearCartLoading,
   } = useContext(CartContext)
+  const { myUser, loginWithRedirect } = useContext(AuthenticationContext)
 
   return (
     <main className="cartpage-main">
@@ -62,15 +64,18 @@ const CartPage = () => {
               </span>
             </p>
           </div>
-          {total_items > 0 ? (
+          {myUser ? (
             <Link className="go-to-checkout-btn btn" to="/checkout">
-              Checkout
+              Go To Checkout
             </Link>
           ) : (
-            <Link className="empty-cart-btn btn" to="/products">
-              <FaArrowLeft />
-              &nbsp;Back To Products
-            </Link>
+            <button
+              type="button"
+              className="empty-cart-btn btn"
+              onClick={loginWithRedirect}
+            >
+              Login To Checkout
+            </button>
           )}
         </div>
       </section>
