@@ -8,14 +8,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #232f3e;
+  background-color: #131921;
   z-index: -1;
   padding-left: 20px;
 }
 
 .sidebar-main .logo {
   width: 100px;
-  margin: 15px 0px;
+  margin: 25px 0px;
 }
 
 .sidebar-main .links-div .links-ul {
@@ -80,7 +80,7 @@
   top: 3px;
   left: 8px;
   text-align: center;
-  background-color: #232f3e;
+  background-color: #131921;
   color: #f3a847;
   font-size: 18px;
   font-weight: 500;
