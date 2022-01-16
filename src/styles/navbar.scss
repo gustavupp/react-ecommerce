@@ -24,7 +24,6 @@ $btn-hover-color: #d3933f;
   position: relative;
   background-color: $background-color;
   width: 100%;
-  position: fixed;
 
   .main-header {
     @include flexDisplay(row, space-between);

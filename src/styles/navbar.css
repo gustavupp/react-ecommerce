@@ -1,5 +1,5 @@
 .main-navbar {
-  display: relative;
+  position: relative;
   background-color: #131921;
   width: 100%;
 }
@@ -189,6 +189,12 @@
   .main-navbar .main-header {
     -ms-flex-pack: distribute;
         justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 796px) {
+  .main-navbar {
+    position: relative;
   }
 }
 /*# sourceMappingURL=navbar.css.map */

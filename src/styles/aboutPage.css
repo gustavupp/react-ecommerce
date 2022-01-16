@@ -1,0 +1,6 @@
+.about-page-main {
+  min-height: 80vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f3d7), to(#f8f8f4));
+  background-image: linear-gradient(to bottom, #f8f3d7, #f8f8f4);
+}
+/*# sourceMappingURL=aboutPage.css.map */

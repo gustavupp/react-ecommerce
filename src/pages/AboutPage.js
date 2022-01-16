@@ -1,8 +1,13 @@
 import React from 'react'
 import About from '../components/About'
+import '../styles/aboutPage.css'
 
 const AboutPage = () => {
-  return <About />
+  return (
+    <main className="about-page-main">
+      <About />
+    </main>
+  )
 }
 
 export default AboutPage
